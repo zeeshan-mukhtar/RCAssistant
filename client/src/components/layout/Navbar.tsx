@@ -23,12 +23,12 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/">
-            <a className="flex items-center">
+            <div className="flex items-center cursor-pointer">
               <div className="bg-primary rounded-lg p-1 mr-2">
                 <MessageSquare className="h-6 w-6 text-white" />
               </div>
               <span className="text-xl font-bold text-primary">RC Assistant</span>
-            </a>
+            </div>
           </Link>
           
           {/* Desktop Navigation */}
