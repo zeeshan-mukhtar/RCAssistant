@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import ChatWindow from "@/components/chat/ChatWindow";
+import { useLocation } from "wouter";
 
 export default function HeroSection() {
+  const [, setLocation] = useLocation();
+
   return (
     <section className="pt-28 lg:pt-32 pb-16 overflow-hidden">
       <div className="container mx-auto px-4 pt-10">
@@ -25,9 +28,9 @@ export default function HeroSection() {
               <Button 
                 size="lg" 
                 className="px-8 bg-primary hover:bg-primary-700 shadow-lg hover:shadow-xl"
-                asChild
+                onClick={() => setLocation("/playground")}
               >
-                <a href="#demo">Get Started</a>
+                Try Now
               </Button>
               <Button 
                 size="lg" 

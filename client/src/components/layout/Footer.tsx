@@ -1,3 +1,4 @@
+import React from "react";
 import { MessageSquare } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { 
@@ -7,74 +8,70 @@ import {
   GithubIcon
 } from "lucide-react";
 
-export default function Footer() {
+export default function Footer({ minimal = false }: { minimal?: boolean }) {
   return (
-    <footer className="bg-neutral-800 text-white py-12">
+    <footer className="bg-neutral-800 text-white py-6">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          <div>
-            <div className="flex items-center mb-4">
-              <div className="bg-primary rounded-lg p-1 mr-2">
-                <MessageSquare className="h-6 w-6 text-white" />
+        {!minimal && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center mb-4">
+                <div className="bg-primary rounded-lg p-1 mr-2">
+                  <MessageSquare className="h-6 w-6 text-white" />
+                </div>
+                <span className="text-xl font-bold">RC Assistant</span>
               </div>
-              <span className="text-xl font-bold">RC Assistant</span>
+              <p className="text-neutral-400 mb-4">
+                Transforming enterprise support with conversational AI that delivers instant, accurate answers.
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+                  <TwitterIcon className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+                  <LinkedinIcon className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+                  <FacebookIcon className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+                  <GithubIcon className="h-5 w-5" />
+                </a>
+              </div>
             </div>
-            <p className="text-neutral-400 mb-4">
-              Transforming enterprise support with conversational AI that delivers instant, accurate answers.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors">
-                <TwitterIcon className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors">
-                <LinkedinIcon className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors">
-                <FacebookIcon className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors">
-                <GithubIcon className="h-5 w-5" />
-              </a>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Product</h3>
+              <ul className="space-y-2">
+                <li><a href="#features" className="text-neutral-400 hover:text-white transition-colors">Features</a></li>
+                <li><a href="#how-it-works" className="text-neutral-400 hover:text-white transition-colors">How It Works</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Pricing</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Security</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Integrations</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Case Studies</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Documentation</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Webinars</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Support</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Careers</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Press</a></li>
+                <li><a href="#contact" className="text-neutral-400 hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Partners</a></li>
+              </ul>
             </div>
           </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Product</h3>
-            <ul className="space-y-2">
-              <li><a href="#features" className="text-neutral-400 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#how-it-works" className="text-neutral-400 hover:text-white transition-colors">How It Works</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Security</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Integrations</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Case Studies</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Webinars</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Support</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Press</a></li>
-              <li><a href="#contact" className="text-neutral-400 hover:text-white transition-colors">Contact</a></li>
-              <li><a href="#" className="text-neutral-400 hover:text-white transition-colors">Partners</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <Separator className="bg-neutral-700" />
-        
-        <div className="pt-8">
+        )}
+        <div>
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-neutral-400 text-sm mb-4 sm:mb-0">&copy; {new Date().getFullYear()} RC Assistant. All rights reserved.</p>
             <div className="flex space-x-6">
