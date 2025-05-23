@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { MessageSquare } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -8,6 +8,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 export default function Navbar() {
   const isMobile = useIsMobile();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,20 +24,27 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/">
-            <div className="flex items-center cursor-pointer">
-              <div className="bg-primary rounded-lg p-1 mr-2">
-                <MessageSquare className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-primary">RC Assistant</span>
+            <div
+              className="flex items-center cursor-pointer"
+              onClick={e => {
+                e.preventDefault();
+                if (location === "/playground") {
+                  setLocation("/");
+                } else {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+            >
+              <img src="/alagentbot-logo-header.png" alt="AlagentBot Logo" className="h-8 mr-2" />
             </div>
           </Link>
           
           {/* Desktop Navigation */}
           {!isMobile ? (
             <nav className="hidden md:flex space-x-8">
-              <a href="#features" className="font-medium text-neutral-600 hover:text-primary transition-colors">Features</a>
+              <a href="#features" className="font-medium text-neutral-600 hover:text-primary transition-colors">Use Cases</a>
               <a href="#how-it-works" className="font-medium text-neutral-600 hover:text-primary transition-colors">How It Works</a>
-              <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary transition-colors">Use Cases</a>
+              <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary transition-colors">Our Approach</a>
               <a href="#contact" className="font-medium text-neutral-600 hover:text-primary transition-colors">Contact</a>
             </nav>
           ) : null}

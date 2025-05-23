@@ -5,18 +5,18 @@ export default function UseCasesSection() {
   const useCases = [
     {
       image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-      title: "IT Support Automation",
-      description: "Automate common IT support tasks like password resets, software installations, and access requests, reducing ticket volume by up to 70%."
+      title: "AI models",
+      description: "Choose from the world’s most advanced AI engines—including Claude 3.5 Sonnet/Haiku/Opus, GPT-4o, GPT-4o mini, Gemini 1.5 Pro, and more—to match the right intelligence to each task."
     },
     {
       image: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-      title: "HR Knowledge Access",
-      description: "Provide instant answers to employee questions about benefits, policies, and procedures, ensuring consistent and accurate information."
+      title: "Custom Agents",
+      description: "Build specialized AI agents tailored to your workflows. Combine collaboration, domain expertise, and scalable automation to solve complex enterprise challenges efficiently. Your rules, your knowledge, your AI workforce"
     },
     {
       image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500",
-      title: "Enterprise Onboarding",
-      description: "Streamline the onboarding process with guided setup, training, and answering new employee questions, reducing time to productivity."
+      title: "Agent Marketplace",
+      description: "Access pre-built expert agents or create custom ones. Equip your AI team with specialized skills that learn, adapt, and deliver consistent brand-aligned interactions 24/7, designed to think, learn & assist your way!"
     }
   ];
 
@@ -30,9 +30,9 @@ export default function UseCasesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">Applications</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Solve real business challenges</h2>
-          <p className="text-neutral-600 text-lg">Discover how RC Assistant transforms support experiences across your organization.</p>
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider">OUR APPROACH</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Complete Solution, Limitless Possibilities.</h2>
+          <p className="text-neutral-600 text-lg">Deploy AI agents that collaborate like your best teams. Enterprise-grade security, scalability, and intelligence—all in a single platform, powered by Microsoft Azure AI Foundry. </p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

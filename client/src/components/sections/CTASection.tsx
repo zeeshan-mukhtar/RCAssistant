@@ -13,8 +13,8 @@ export default function CTASection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to transform your support experience?</h2>
-            <p className="text-white/90 text-lg mb-8">Join hundreds of leading companies using RC Assistant to automate support and enhance employee productivity.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Change the Game with AIAgentBot</h2>
+            <p className="text-white/90 text-lg mb-8">Build specialized AI agents that align with your industry, brand, data, and compliance needs!</p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button 
                 size="lg"

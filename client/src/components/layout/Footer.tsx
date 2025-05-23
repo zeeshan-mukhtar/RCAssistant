@@ -16,13 +16,14 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center mb-4">
-                <div className="bg-primary rounded-lg p-1 mr-2">
+                {/* <div className="bg-primary rounded-lg p-1 mr-2">
                   <MessageSquare className="h-6 w-6 text-white" />
                 </div>
-                <span className="text-xl font-bold">RC Assistant</span>
+                <span className="text-xl font-bold">RC Assistant</span> */}
+                <img src="/aiagentbot-logo-footer.png" alt="AlagentBot Logo" className="h-8 mr-2" />
               </div>
               <p className="text-neutral-400 mb-4">
-                Transforming enterprise support with conversational AI that delivers instant, accurate answers.
+              AIAgentBot is an enterprise-ready AI platform that enables seamless development an deployment of AI-powered solutions. The company is a subsidiary of Royal Cyber Inc. specializing in digital transformation & IT consulting.
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="text-neutral-400 hover:text-white transition-colors">

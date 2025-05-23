@@ -80,8 +80,8 @@ export default function ContactSection() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Contact Us</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">Get in touch with our team</h2>
-            <p className="text-neutral-600 text-lg mb-8">Schedule a personalized demo to see how RC Assistant can transform your support experience.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">Ready to Take Your Business to the Next Level with AI AgentBot?</h2>
+            <p className="text-neutral-600 text-lg mb-8">We’re here to help you build specialized AI agents tailored to your industry, brand, data, and compliance needs. Whether you’re looking for more information or ready to discuss how we can assist with your unique business requirements, you can fill up the form right away! </p>
             
             <div className="space-y-6">
               <div className="flex items-start">
@@ -90,7 +90,7 @@ export default function ContactSection() {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium">Email Us</h3>
-                  <p className="text-neutral-600">info@rcassistant.com</p>
+                  <p className="text-neutral-600">info@example.com</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -99,7 +99,7 @@ export default function ContactSection() {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium">Call Us</h3>
-                  <p className="text-neutral-600">(800) 555-0123</p>
+                  <p className="text-neutral-600">+1.630.355.6292</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -108,7 +108,7 @@ export default function ContactSection() {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium">Visit Us</h3>
-                  <p className="text-neutral-600">123 Innovation Way, San Francisco, CA 94107</p>
+                  <p className="text-neutral-600">55 Shuman Blvd, Suite 275, Naperville, IL 60563 USA.</p>
                 </div>
               </div>
             </div>
@@ -146,12 +146,12 @@ export default function ContactSection() {
                     name="name"
                     render={({ field }) => (
                       <FormItem className="mb-6">
-                        <FormLabel className="text-sm font-medium text-neutral-700">Full Name</FormLabel>
+                        <FormLabel className="text-sm font-medium text-neutral-700">Your Name</FormLabel>
                         <FormControl>
                           <Input 
                             {...field} 
                             className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" 
-                            placeholder="Your name" 
+                            placeholder="Name" 
                           />
                         </FormControl>
                         <FormMessage />
@@ -164,7 +164,7 @@ export default function ContactSection() {
                     name="email"
                     render={({ field }) => (
                       <FormItem className="mb-6">
-                        <FormLabel className="text-sm font-medium text-neutral-700">Work Email</FormLabel>
+                        <FormLabel className="text-sm font-medium text-neutral-700">Your Email</FormLabel>
                         <FormControl>
                           <Input 
                             {...field} 
@@ -183,12 +183,12 @@ export default function ContactSection() {
                     name="company"
                     render={({ field }) => (
                       <FormItem className="mb-6">
-                        <FormLabel className="text-sm font-medium text-neutral-700">Company</FormLabel>
+                        <FormLabel className="text-sm font-medium text-neutral-700">Subject </FormLabel>
                         <FormControl>
                           <Input 
                             {...field} 
                             className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" 
-                            placeholder="Your company" 
+                            placeholder="Subject" 
                           />
                         </FormControl>
                         <FormMessage />
@@ -201,7 +201,7 @@ export default function ContactSection() {
                     name="message"
                     render={({ field }) => (
                       <FormItem className="mb-6">
-                        <FormLabel className="text-sm font-medium text-neutral-700">Message</FormLabel>
+                        <FormLabel className="text-sm font-medium text-neutral-700">Your message (optional) </FormLabel>
                         <FormControl>
                           <Textarea 
                             {...field} 
@@ -220,7 +220,7 @@ export default function ContactSection() {
                     className="w-full px-6 py-3 bg-primary hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Submitting..." : "Request Demo"}
+                    {isSubmitting ? "Submitting..." : "Submit"}
                   </Button>
                 </form>
               </Form>

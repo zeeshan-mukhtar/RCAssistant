@@ -11,7 +11,8 @@ export default function ClientsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          TRUSTED BY LEADING COMPANIES
+          Trusted by Leading Brands
+          <span className="text-primary"> Across Industries</span>
         </motion.p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
@@ -36,49 +37,20 @@ export default function ClientsSection() {
 // SVG logo placeholders with different shapes
 function LogoPlaceholder({ index }: { index: number }) {
   const logos = [
-    // Simple horizontal bars
-    <svg key="logo1" className="h-10" viewBox="0 0 100 34" fill="currentColor">
-      <rect width="100" height="8" rx="2"></rect>
-      <rect y="16" width="60" height="6" rx="2"></rect>
-      <rect y="28" width="80" height="6" rx="2"></rect>
-    </svg>,
-    
-    // Circle and rectangle
-    <svg key="logo2" className="h-10" viewBox="0 0 100 34" fill="currentColor">
-      <circle cx="17" cy="17" r="17"></circle>
-      <rect x="40" y="9" width="60" height="16" rx="8"></rect>
-    </svg>,
-    
-    // Diamond and bars
-    <svg key="logo3" className="h-10" viewBox="0 0 100 34" fill="currentColor">
-      <path d="M0 17L17 0L34 17L17 34L0 17Z"></path>
-      <rect x="40" y="6" width="60" height="6" rx="2"></rect>
-      <rect x="40" y="14" width="40" height="6" rx="2"></rect>
-      <rect x="40" y="22" width="50" height="6" rx="2"></rect>
-    </svg>,
-    
-    // Square and bars
-    <svg key="logo4" className="h-10" viewBox="0 0 100 34" fill="currentColor">
-      <rect width="34" height="34" rx="4"></rect>
-      <rect x="40" y="6" width="60" height="6" rx="2"></rect>
-      <rect x="40" y="14" width="30" height="6" rx="2"></rect>
-      <rect x="40" y="22" width="45" height="6" rx="2"></rect>
-    </svg>,
-    
-    // Circle and square
-    <svg key="logo5" className="h-10" viewBox="0 0 100 34" fill="currentColor">
-      <rect width="34" height="34" rx="17"></rect>
-      <rect x="40" width="60" height="34" rx="4"></rect>
-    </svg>,
-    
-    // Triangle and bars
-    <svg key="logo6" className="h-10" viewBox="0 0 100 34" fill="currentColor">
-      <polygon points="17,0 34,34 0,34"></polygon>
-      <rect x="40" y="6" width="60" height="6" rx="2"></rect>
-      <rect x="40" y="14" width="50" height="6" rx="2"></rect>
-      <rect x="40" y="22" width="40" height="6" rx="2"></rect>
-    </svg>
+    '/educause.png',
+    '/ksm.png',
+    '/adatelum.png',
+    '/uc.png',
+    '/Instructure.png',
+    '/microsoft.png',
   ];
-  
-  return logos[index % logos.length];
+  return (
+    <img
+      key={logos[index % logos.length]}
+      src={logos[index % logos.length]}
+      alt="Client Logo"
+      className="h-10 object-contain"
+      loading="lazy"
+    />
+  );
 }

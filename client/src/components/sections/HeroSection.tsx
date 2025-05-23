@@ -17,12 +17,11 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Transform your
-              <span className="text-primary block"> support experience</span>
-              with AI
+              Hello
+              <span className="text-primary block"> AIAgentBot!</span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 mb-8">
-              RC Assistant delivers instant, accurate answers to employee questions across all enterprise applications, automating support tasks and boosting productivity.
+            Deploy Scalable, Intelligent AI Agents—Seamlessly Integrated, Enterprise-Ready for Seamless Customer & Business Automation
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button 
