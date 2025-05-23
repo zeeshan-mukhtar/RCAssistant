@@ -41,7 +41,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ selectedWorkflow, setSelectedWorkflow }: SidebarProps) {
-  const [openSection, setOpenSection] = useState<'IT & NOC' | 'HR' | 'Travel Desk'>('IT & NOC');
+  const [openSection, setOpenSection] = useState<'IT & NOC' | 'HR' | 'Travel Desk' | 'Finance' | 'Legal'>('IT & NOC');
 
   const workflows = {
     'IT & NOC': {
@@ -77,6 +77,26 @@ export default function Sidebar({ selectedWorkflow, setSelectedWorkflow }: Sideb
         { id: 'travel-expenses', label: 'Travel Expenses', icon: <Receipt /> },
       ],
     },
+    'Finance': {
+      open: openSection === 'Finance',
+      items: [
+        { id: 'expense-claim', label: 'Expense Claim', icon: <Receipt /> },
+        { id: 'reimbursement-status', label: 'Reimbursement Status', icon: <Assessment /> },
+        { id: 'budget-request', label: 'Budget Request', icon: <AccountBalance /> },
+        { id: 'invoice-query', label: 'Invoice Query', icon: <Description /> },
+        { id: 'vendor-payment', label: 'Vendor Payment', icon: <Business /> },
+      ],
+    },
+    'Legal': {
+      open: openSection === 'Legal',
+      items: [
+        { id: 'contract-review', label: 'Contract Review', icon: <Description /> },
+        { id: 'nda-request', label: 'NDA Request', icon: <Assessment /> },
+        { id: 'policy-query', label: 'Policy Query', icon: <Help /> },
+        { id: 'compliance-check', label: 'Compliance Check', icon: <Security /> },
+        { id: 'legal-support', label: 'Legal Support', icon: <Support /> },
+      ],
+    },
   };
 
   return (
@@ -100,7 +120,7 @@ export default function Sidebar({ selectedWorkflow, setSelectedWorkflow }: Sideb
         {Object.entries(workflows).map(([section, { open, items }]) => (
           <Box key={section}>
             <ListItemButton
-              onClick={() => setOpenSection(section as 'IT & NOC' | 'HR' | 'Travel Desk')}
+              onClick={() => setOpenSection(section as 'IT & NOC' | 'HR' | 'Travel Desk' | 'Finance' | 'Legal')}
               sx={{
                 borderRadius: '8px',
                 mb: 0.5,
@@ -108,7 +128,7 @@ export default function Sidebar({ selectedWorkflow, setSelectedWorkflow }: Sideb
               }}
             >
               <ListItemIcon sx={{ minWidth: 40, color: '#4a6cf7' }}>
-                {section === 'IT & NOC' ? <Security /> : section === 'HR' ? <Work /> : <CardTravel />}
+                {section === 'IT & NOC' ? <Security /> : section === 'HR' ? <Work /> : section === 'Travel Desk' ? <CardTravel /> : section === 'Finance' ? <Receipt /> : <Description />}
               </ListItemIcon>
               <ListItemText
                 primary={section}

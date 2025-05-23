@@ -161,6 +161,28 @@ export const workflowInfoContent: Record<string, { heading: string; description:
       'View and export travel expense reports',
     ],
   },
+  'Finance': {
+    heading: '💰 Try it yourself!',
+    description: "Manage your finance-related tasks. Here's what you can do with RC Agentic AI Playground:",
+    bullets: [
+      'Submit an expense claim',
+      'Check reimbursement status',
+      'Request a budget',
+      'Query invoices',
+      'Check vendor payment status',
+    ],
+  },
+  'Legal': {
+    heading: '⚖️ Try it yourself!',
+    description: "Manage your legal-related tasks. Here's what you can do with RC Agentic AI Playground:",
+    bullets: [
+      'Request contract review',
+      'Submit NDA request',
+      'Query company policies',
+      'Run compliance checks',
+      'Get legal support',
+    ],
+  },
 };
 
 // Workflow-specific sample prompts and AI-style responses
@@ -382,7 +404,7 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
         "- **User:** John Doe (john.doe@example.com)\n" +
         "- **Issue:** Unable to reset password\n" +
         "- **Details:** Azure AD password reset process not completing\n\n" +
-        "�� **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
+        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
         "[Send support request] [Edit details] [Cancel]",
       "I need help, what should I do?":
         "**1.** You need help. Let me check your account status and prepare the support request process...\n\n---\n\n" +
@@ -678,6 +700,158 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
         "**1.** You want to view travel expense reports. Let me guide you through the process...\n\n---\n\n" +
         "**2.** I'll guide you through the process to view travel expense reports.\n\n---\n\n" +
         "**3.** Would you like me to guide you through viewing travel expense reports?",
+    }
+  },
+  'expense-claim': {
+    prompts: [
+      { text: "How do I submit an expense claim?", highlighted: "submit an expense claim" },
+      { text: "What documents are needed for expense claims?", highlighted: "documents needed for expense claims" },
+    ],
+    responses: {
+      "How do I submit an expense claim?":
+        "**1.** To submit an expense claim, please provide the expense details and upload receipts.\n\n---\n\n" +
+        "**2.** I'll guide you through the process and ensure all required information is included.\n\n---\n\n" +
+        "**3.** Would you like to start a new claim or view previous claims?\n\n[Start new claim] [View previous claims] [Cancel]",
+      "What documents are needed for expense claims?":
+        "**1.** For expense claims, you typically need to provide receipts, proof of payment, and a completed claim form.\n\n---\n\n" +
+        "**2.** Would you like a checklist or a sample form?\n\n[Get checklist] [Get sample form] [Cancel]",
+    }
+  },
+  'reimbursement-status': {
+    prompts: [
+      { text: "How do I check my reimbursement status?", highlighted: "check my reimbursement status" },
+      { text: "Why is my reimbursement delayed?", highlighted: "reimbursement delayed" },
+    ],
+    responses: {
+      "How do I check my reimbursement status?":
+        "**1.** To check your reimbursement status, please provide your claim ID or date of submission.\n\n---\n\n" +
+        "**2.** I'll fetch the latest status from the finance system.\n\n---\n\n" +
+        "**3.** Would you like to receive updates via email or SMS?\n\n[Get status] [Receive updates] [Cancel]",
+      "Why is my reimbursement delayed?":
+        "**1.** Reimbursement delays can occur due to missing documents or approval bottlenecks.\n\n---\n\n" +
+        "**2.** Would you like to contact finance support or review your claim details?\n\n[Contact support] [Review claim] [Cancel]",
+    }
+  },
+  'budget-request': {
+    prompts: [
+      { text: "How do I request a budget for my project?", highlighted: "request a budget" },
+      { text: "What is the approval process for budget requests?", highlighted: "approval process for budget requests" },
+    ],
+    responses: {
+      "How do I request a budget for my project?":
+        "**1.** To request a budget, please provide project details and the required amount.\n\n---\n\n" +
+        "**2.** I'll help you fill out the budget request form and submit it for approval.\n\n---\n\n" +
+        "**3.** Would you like to start a new request or view guidelines?\n\n[Start new request] [View guidelines] [Cancel]",
+      "What is the approval process for budget requests?":
+        "**1.** Budget requests are reviewed by your manager and the finance team.\n\n---\n\n" +
+        "**2.** Would you like to see the approval workflow or contact finance?\n\n[View workflow] [Contact finance] [Cancel]",
+    }
+  },
+  'invoice-query': {
+    prompts: [
+      { text: "How do I query an invoice?", highlighted: "query an invoice" },
+      { text: "How do I get a copy of an invoice?", highlighted: "get a copy of an invoice" },
+    ],
+    responses: {
+      "How do I query an invoice?":
+        "**1.** To query an invoice, please provide the invoice number or vendor name.\n\n---\n\n" +
+        "**2.** I'll check the invoice status and details for you.\n\n---\n\n" +
+        "**3.** Would you like to download the invoice or contact support?\n\n[Download invoice] [Contact support] [Cancel]",
+      "How do I get a copy of an invoice?":
+        "**1.** To get a copy of an invoice, please provide the invoice number.\n\n---\n\n" +
+        "**2.** I'll fetch the document and send it to your email.\n\n---\n\n" +
+        "**3.** Would you like to request another invoice or return to the main menu?\n\n[Request another] [Main menu] [Cancel]",
+    }
+  },
+  'vendor-payment': {
+    prompts: [
+      { text: "How do I check vendor payment status?", highlighted: "check vendor payment status" },
+      { text: "How do I initiate a vendor payment?", highlighted: "initiate a vendor payment" },
+    ],
+    responses: {
+      "How do I check vendor payment status?":
+        "**1.** To check vendor payment status, please provide the vendor name or payment reference.\n\n---\n\n" +
+        "**2.** I'll fetch the latest payment status from the finance system.\n\n---\n\n" +
+        "**3.** Would you like to receive updates or contact support?\n\n[Receive updates] [Contact support] [Cancel]",
+      "How do I initiate a vendor payment?":
+        "**1.** To initiate a vendor payment, please provide the vendor details and payment amount.\n\n---\n\n" +
+        "**2.** I'll help you fill out the payment form and submit it for approval.\n\n---\n\n" +
+        "**3.** Would you like to start a new payment or view payment history?\n\n[Start new payment] [View history] [Cancel]",
+    }
+  },
+  'contract-review': {
+    prompts: [
+      { text: "How do I request a contract review?", highlighted: "request a contract review" },
+      { text: "What documents are needed for contract review?", highlighted: "documents needed for contract review" },
+    ],
+    responses: {
+      "How do I request a contract review?":
+        "**1.** To request a contract review, please upload the contract and provide relevant details.\n\n---\n\n" +
+        "**2.** I'll forward your request to the legal team and keep you updated.\n\n---\n\n" +
+        "**3.** Would you like to start a new review or check review status?\n\n[Start new review] [Check status] [Cancel]",
+      "What documents are needed for contract review?":
+        "**1.** For contract review, you typically need to provide the contract, related correspondence, and any supporting documents.\n\n---\n\n" +
+        "**2.** Would you like a checklist or a sample contract?\n\n[Get checklist] [Get sample contract] [Cancel]",
+    }
+  },
+  'nda-request': {
+    prompts: [
+      { text: "How do I request an NDA?", highlighted: "request an NDA" },
+      { text: "What is the process for NDA approval?", highlighted: "process for NDA approval" },
+    ],
+    responses: {
+      "How do I request an NDA?":
+        "**1.** To request an NDA, please provide the parties involved and the purpose.\n\n---\n\n" +
+        "**2.** I'll help you fill out the NDA request form and submit it for approval.\n\n---\n\n" +
+        "**3.** Would you like to start a new request or view NDA templates?\n\n[Start new request] [View templates] [Cancel]",
+      "What is the process for NDA approval?":
+        "**1.** NDA requests are reviewed by the legal team and require signatures from all parties.\n\n---\n\n" +
+        "**2.** Would you like to see the approval workflow or contact legal?\n\n[View workflow] [Contact legal] [Cancel]",
+    }
+  },
+  'policy-query': {
+    prompts: [
+      { text: "How do I query a company policy?", highlighted: "query a company policy" },
+      { text: "Where can I find the employee handbook?", highlighted: "find the employee handbook" },
+    ],
+    responses: {
+      "How do I query a company policy?":
+        "**1.** To query a company policy, please specify the policy name or topic.\n\n---\n\n" +
+        "**2.** I'll search the policy database and provide the relevant information.\n\n---\n\n" +
+        "**3.** Would you like to download the policy or contact HR?\n\n[Download policy] [Contact HR] [Cancel]",
+      "Where can I find the employee handbook?":
+        "**1.** The employee handbook is available in the company intranet or HR portal.\n\n---\n\n" +
+        "**2.** Would you like a direct link or a PDF copy?\n\n[Get link] [Get PDF] [Cancel]",
+    }
+  },
+  'compliance-check': {
+    prompts: [
+      { text: "How do I run a compliance check?", highlighted: "run a compliance check" },
+      { text: "What are the steps for compliance reporting?", highlighted: "steps for compliance reporting" },
+    ],
+    responses: {
+      "How do I run a compliance check?":
+        "**1.** To run a compliance check, please specify the area or regulation.\n\n---\n\n" +
+        "**2.** I'll guide you through the compliance checklist and reporting process.\n\n---\n\n" +
+        "**3.** Would you like to start a new check or view compliance guidelines?\n\n[Start new check] [View guidelines] [Cancel]",
+      "What are the steps for compliance reporting?":
+        "**1.** Compliance reporting involves gathering evidence, completing forms, and submitting to the compliance team.\n\n---\n\n" +
+        "**2.** Would you like a checklist or contact compliance?\n\n[Get checklist] [Contact compliance] [Cancel]",
+    }
+  },
+  'legal-support': {
+    prompts: [
+      { text: "How do I get legal support?", highlighted: "get legal support" },
+      { text: "Who do I contact for urgent legal issues?", highlighted: "urgent legal issues" },
+    ],
+    responses: {
+      "How do I get legal support?":
+        "**1.** To get legal support, please describe your issue or question.\n\n---\n\n" +
+        "**2.** I'll connect you with the legal team or provide relevant resources.\n\n---\n\n" +
+        "**3.** Would you like to submit a support ticket or view FAQs?\n\n[Submit ticket] [View FAQs] [Cancel]",
+      "Who do I contact for urgent legal issues?":
+        "**1.** For urgent legal issues, contact the legal hotline or your assigned legal advisor.\n\n---\n\n" +
+        "**2.** Would you like the hotline number or to send an urgent request?\n\n[Get hotline] [Send urgent request] [Cancel]",
     }
   },
 }; 
