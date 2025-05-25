@@ -19,7 +19,7 @@ export default function ClientsSection() {
           {Array.from({ length: 6 }).map((_, i) => (
             <motion.div 
               key={i}
-              className="grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+              className="transition-all"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

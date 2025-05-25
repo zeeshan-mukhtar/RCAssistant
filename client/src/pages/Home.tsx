@@ -4,7 +4,8 @@ import ClientsSection from "@/components/sections/ClientsSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import StatsSection from "@/components/sections/StatsSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
-import UseCasesSection from "@/components/sections/UseCasesSection";
+import OurApproachSection from "@/components/sections/OurApproachSection";
+import UseCaseSection from "@/components/sections/UseCaseSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -18,9 +19,10 @@ export default function Home() {
         <HeroSection />
         <ClientsSection />
         <FeaturesSection />
+        <UseCaseSection />
         <StatsSection />
         <HowItWorksSection />
-        <UseCasesSection />
+        <OurApproachSection />
         <TestimonialsSection />
         <CTASection />
         <ContactSection />

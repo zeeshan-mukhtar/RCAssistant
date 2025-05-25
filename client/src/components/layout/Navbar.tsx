@@ -42,9 +42,10 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           {!isMobile ? (
             <nav className="hidden md:flex space-x-8">
-              <a href="#features" className="font-medium text-neutral-600 hover:text-primary transition-colors">Use Cases</a>
+              <a href="#features" className="font-medium text-neutral-600 hover:text-primary transition-colors">Features</a>
+              <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary transition-colors">Use Cases</a>
               <a href="#how-it-works" className="font-medium text-neutral-600 hover:text-primary transition-colors">How It Works</a>
-              <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary transition-colors">Our Approach</a>
+              <a href="#our-approach" className="font-medium text-neutral-600 hover:text-primary transition-colors">Our Approach</a>
               <a href="#contact" className="font-medium text-neutral-600 hover:text-primary transition-colors">Contact</a>
             </nav>
           ) : null}
