@@ -10,7 +10,7 @@ export const initialMessages: Message[] = [
   {
     id: '1',
     sender: 'assistant',
-    content: 'Hello! I\'m RC Assistant. How can I help you today?',
+    content: 'Hello! I\'m AIagentBot. How can I help you today?',
     timestamp: new Date(Date.now() - 60000 * 5)
   }
 ];

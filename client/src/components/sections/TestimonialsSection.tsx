@@ -4,17 +4,17 @@ import { Star, User } from "lucide-react";
 export default function TestimonialsSection() {
   const testimonials = [
     {
-      quote: "RC Assistant has transformed our IT support operations. We've seen a 75% reduction in ticket volume and significantly improved employee satisfaction. The ROI has been incredible.",
+      quote: "AIagentBot has transformed our IT support operations. We've seen a 75% reduction in ticket volume and significantly improved employee satisfaction. The ROI has been incredible.",
       author: "Sarah Johnson",
       role: "CIO, Global Financial Services"
     },
     {
-      quote: "Employee onboarding time has been cut in half since implementing RC Assistant. New hires get immediate answers to their questions, and our HR team can focus on more strategic work.",
+      quote: "Employee onboarding time has been cut in half since implementing AIagentBot. New hires get immediate answers to their questions, and our HR team can focus on more strategic work.",
       author: "Michael Chen",
       role: "HR Director, Tech Innovations Inc."
     },
     {
-      quote: "The integration capabilities of RC Assistant are impressive. It connects with all our systems and provides a single source of truth for employees. The ROI has exceeded our expectations.",
+      quote: "The integration capabilities of AIagentBot are impressive. It connects with all our systems and provides a single source of truth for employees. The ROI has exceeded our expectations.",
       author: "Alex Rodriguez",
       role: "CTO, Enterprise Solutions Ltd."
     }
@@ -32,7 +32,7 @@ export default function TestimonialsSection() {
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Success Stories</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">What our customers are saying</h2>
-          <p className="text-neutral-600 text-lg">Hear from organizations that have transformed their support experience with RC Assistant.</p>
+          <p className="text-neutral-600 text-lg">Hear from organizations that have transformed their support experience with AIagentBot.</p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

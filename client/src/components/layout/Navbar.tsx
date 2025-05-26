@@ -35,18 +35,18 @@ export default function Navbar() {
                 }
               }}
             >
-              <img src="/alagentbot-logo-header.png" alt="AlagentBot Logo" className="h-8 mr-2" />
+              <img src="/alagentbot-logo-header.png" alt="AlagentBot Logo" className="h-16 mr-2" />
             </div>
           </Link>
           
           {/* Desktop Navigation */}
           {!isMobile ? (
             <nav className="hidden md:flex space-x-8">
-              <a href="#features" className="font-medium text-neutral-600 hover:text-primary transition-colors">Features</a>
-              <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary transition-colors">Use Cases</a>
-              <a href="#how-it-works" className="font-medium text-neutral-600 hover:text-primary transition-colors">How It Works</a>
-              <a href="#our-approach" className="font-medium text-neutral-600 hover:text-primary transition-colors">Our Approach</a>
-              <a href="#contact" className="font-medium text-neutral-600 hover:text-primary transition-colors">Contact</a>
+              <a href="#features" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">Features</a>
+              <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">Use Cases</a>
+              <a href="#how-it-works" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">How It Works</a>
+              <a href="#our-approach" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">Our Approach</a>
+              <a href="#contact" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">Contact</a>
             </nav>
           ) : null}
           
@@ -54,7 +54,7 @@ export default function Navbar() {
           {!isMobile ? (
             <div className="hidden md:block">
               <a href="#demo">
-                <Button className="bg-primary hover:bg-primary-700 shadow-md">
+                <Button className="bg-primary hover:bg-primary-700 shadow-md text-[19px]">
                   Request Demo
                 </Button>
               </a>

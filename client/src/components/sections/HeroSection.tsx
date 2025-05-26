@@ -18,7 +18,7 @@ export default function HeroSection() {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Hello
-              <span className="text-primary block"> AIAgentBot!</span>
+              <span className="text-primary block"> AIagentBot!</span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 mb-8">
             Deploy Scalable, Intelligent AI Agents—Seamlessly Integrated, Enterprise-Ready for Seamless Customer & Business Automation

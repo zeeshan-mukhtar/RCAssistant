@@ -19,10 +19,10 @@ export default function Home() {
         <HeroSection />
         <ClientsSection />
         <FeaturesSection />
-        <UseCaseSection />
-        <StatsSection />
         <HowItWorksSection />
-        <OurApproachSection />
+        <StatsSection />
+        <UseCaseSection />
+        {/* <OurApproachSection /> */}
         <TestimonialsSection />
         <CTASection />
         <ContactSection />

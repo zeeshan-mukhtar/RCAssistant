@@ -54,7 +54,7 @@ export default function FeaturesSection() {
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Features</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Transform your support experience with AI</h2>
-          <p className="text-neutral-600 text-lg">RC Assistant combines breakthrough AI and enterprise knowledge to deliver instant, accurate support across your organization.</p>
+          <p className="text-neutral-600 text-lg">AIagentBot combines breakthrough AI and enterprise knowledge to deliver instant, accurate support across your organization.</p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

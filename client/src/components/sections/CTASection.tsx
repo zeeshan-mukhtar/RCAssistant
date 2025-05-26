@@ -13,7 +13,7 @@ export default function CTASection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Change the Game with AIAgentBot</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Change the Game with AIagentBot</h2>
             <p className="text-white/90 text-lg mb-8">Build specialized AI agents that align with your industry, brand, data, and compliance needs!</p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button 
@@ -41,7 +41,7 @@ export default function CTASection() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800" 
+              src="/AIAgentBot.png" 
               alt="Professional AI assistant interface" 
               className="w-full h-auto rounded-xl shadow-2xl"
             />
