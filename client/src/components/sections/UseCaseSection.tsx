@@ -3,7 +3,11 @@ import {
   ShoppingBag,
   Stethoscope,
   Banknote,
-  ShieldCheck
+  ShieldCheck,
+  Monitor,
+  FileText,
+  UserPlus,
+  Scale
 } from "lucide-react";
 
 export default function UseCaseSection() {
@@ -27,6 +31,26 @@ export default function UseCaseSection() {
       icon: <ShieldCheck className="h-6 w-6 text-primary" />,
       title: "Insurance",
       description: "Transform policy management, claims processing, and customer engagement."
+    },
+    {
+      icon: <Monitor className="h-6 w-6 text-primary" />,
+      title: "IT Support Automation",
+      description: "Automate common IT support tasks like password resets, software installations, and access requests, reducing ticket volume by up to 70%."
+    },
+    {
+      icon: <FileText className="h-6 w-6 text-primary" />,
+      title: "HR Knowledge Access",
+      description: "Provide instant answers to employee questions about benefits, policies, and procedures, ensuring consistent and accurate information."
+    },
+    {
+      icon: <UserPlus className="h-6 w-6 text-primary" />,
+      title: "Enterprise Onboarding",
+      description: "Streamline the onboarding process with guided setup, training, and answering new employee questions, reducing time to productivity."
+    },
+    {
+      icon: <Scale className="h-6 w-6 text-primary" />,
+      title: "Legal",
+      description: "Streamline the onboarding process with guided setup, training, and answering new employee questions, reducing time to productivity."
     }
   ];
 
