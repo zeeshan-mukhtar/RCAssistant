@@ -19,11 +19,11 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
                 {/* <div className="bg-primary rounded-lg p-1 mr-2">
                   <MessageSquare className="h-6 w-6 text-white" />
                 </div>
-                <span className="text-xl font-bold">RC Assistant</span> */}
+                <span className="text-xl font-bold">AIagentBot</span> */}
                 <img src="/aiagentbot-logo-footer.png" alt="AlagentBot Logo" className="h-8 mr-2" />
               </div>
               <p className="text-neutral-400 mb-4">
-              AIAgentBot is an enterprise-ready AI platform that enables seamless development an deployment of AI-powered solutions. The company is a subsidiary of Royal Cyber Inc. specializing in digital transformation & IT consulting.
+              AIagentBot is an enterprise-ready AI platform that enables seamless development an deployment of AI-powered solutions. The company is a subsidiary of Royal Cyber Inc. specializing in digital transformation & IT consulting.
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="text-neutral-400 hover:text-white transition-colors">
@@ -74,7 +74,7 @@ export default function Footer({ minimal = false }: { minimal?: boolean }) {
         )}
         <div>
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-neutral-400 text-sm mb-4 sm:mb-0">&copy; {new Date().getFullYear()} RC Assistant. All rights reserved.</p>
+            <p className="text-neutral-400 text-sm mb-4 sm:mb-0">&copy; {new Date().getFullYear()} AIagentBot. All rights reserved.</p>
             <div className="flex space-x-6">
               <a href="#" className="text-neutral-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
               <a href="#" className="text-neutral-400 hover:text-white text-sm transition-colors">Terms of Service</a>

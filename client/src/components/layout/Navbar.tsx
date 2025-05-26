@@ -35,7 +35,7 @@ export default function Navbar() {
                 }
               }}
             >
-              <img src="/alagentbot-logo-header.png" alt="AlagentBot Logo" className="h-8 mr-2" />
+              <img src="/alagentbot-logo-header.png" alt="AlagentBot Logo" className="h-14 mr-2" />
             </div>
           </Link>
           

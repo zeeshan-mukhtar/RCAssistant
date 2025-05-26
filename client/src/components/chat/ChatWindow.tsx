@@ -99,11 +99,11 @@ export default function ChatWindow({
     } else if (messageLower.includes("help") || messageLower.includes("support")) {
       return "I'm here to help! I can assist with password resets, access requests, software troubleshooting, and answering questions about company policies. What do you need help with today?";
     } else if (messageLower.includes("feature") || messageLower.includes("capabilities")) {
-      return "RC Assistant can help with IT support, password resets, software installations, policy questions, and automate many routine tasks. We integrate with your existing systems and provide instant, accurate responses.";
+      return "AIagentBot can help with IT support, password resets, software installations, policy questions, and automate many routine tasks. We integrate with your existing systems and provide instant, accurate responses.";
     } else if (messageLower.includes("demo")) {
       return "I'd be happy to arrange a demo for you! You can fill out the contact form at the bottom of this page, and our team will reach out to schedule a personalized demonstration.";
     } else {
-      return "Hello! I'm RC Assistant. How can I help you today?";
+      return "Hello! I'm AIagentBot. How can I help you today?";
     }
   };
   
@@ -124,7 +124,7 @@ export default function ChatWindow({
         <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
         <div className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
         <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-        <div className="ml-4 text-sm font-medium text-neutral-500">RC Assistant</div>
+        <div className="ml-4 text-sm font-medium text-neutral-500">AIagentBot</div>
       </div>
       
       <div className="h-72 md:h-80 overflow-y-auto" ref={scrollAreaRef}>
@@ -149,7 +149,7 @@ export default function ChatWindow({
               animate={{ opacity: 1 }}
               className="flex items-center space-x-2 text-neutral-400 text-sm pl-2"
             >
-              <div>RC Assistant is typing</div>
+              <div>AIagentBot is typing</div>
               <motion.div
                 animate={{
                   opacity: [0.4, 1, 0.4],

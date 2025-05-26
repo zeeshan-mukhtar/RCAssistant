@@ -91,10 +91,10 @@ async function generateAssistantResponse(userMessage: string): Promise<string> {
   } else if (userMessageLower.includes("help") || userMessageLower.includes("support")) {
     return "I'm here to help! I can assist with password resets, access requests, software troubleshooting, and answering questions about company policies. What do you need help with today?";
   } else if (userMessageLower.includes("feature") || userMessageLower.includes("capabilities")) {
-    return "RC Assistant can help with IT support, password resets, software installations, policy questions, and automate many routine tasks. We integrate with your existing systems and provide instant, accurate responses.";
+    return "AIagentBot can help with IT support, password resets, software installations, policy questions, and automate many routine tasks. We integrate with your existing systems and provide instant, accurate responses.";
   } else if (userMessageLower.includes("demo")) {
     return "I'd be happy to arrange a demo for you! You can fill out the contact form at the bottom of this page, and our team will reach out to schedule a personalized demonstration.";
   } else {
-    return "Hello! I'm RC Assistant. How can I help you today?";
+    return "Hello! I'm AIagentBot. How can I help you today?";
   }
 }

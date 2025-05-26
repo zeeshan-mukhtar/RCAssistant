@@ -6,7 +6,7 @@ export default function HowItWorksSection() {
     {
       number: 1,
       title: "Connect & Learn",
-      description: "RC Assistant connects to your enterprise systems and knowledge bases, learning the structure and content of your organization's information."
+      description: "AIagentBot connects to your enterprise systems and knowledge bases, learning the structure and content of your organization's information."
     },
     {
       number: 2,
@@ -16,7 +16,7 @@ export default function HowItWorksSection() {
     {
       number: 3,
       title: "Deliver & Automate",
-      description: "RC Assistant provides immediate answers and solutions while also automating common support tasks like password resets, access requests, and more."
+      description: "AIagentBot provides immediate answers and solutions while also automating common support tasks like password resets, access requests, and more."
     }
   ];
 
@@ -31,7 +31,7 @@ export default function HowItWorksSection() {
           transition={{ duration: 0.5 }}
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Process</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">How RC Assistant Works</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">How AIagentBot Works</h2>
           <p className="text-neutral-600 text-lg">Our AI assistant transforms your enterprise knowledge into instant solutions for employees.</p>
         </motion.div>
         
@@ -69,8 +69,8 @@ export default function HowItWorksSection() {
           transition={{ duration: 0.7 }}
         >
           <img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=800" 
-            alt="Modern tech office environment with employees using RC Assistant" 
+            src="/AIAgentBot_banner.png" 
+            alt="Modern tech office environment with employees using AIagentBot" 
             className="w-full h-auto object-cover"
           />
         </motion.div>
