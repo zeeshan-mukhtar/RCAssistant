@@ -195,229 +195,231 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I reset my Azure AD password?":
-        "**1.** I see you want to reset your Azure AD password. Let me check your account status and prepare the reset process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for a password reset. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm your username and whether you have access to your recovery email or phone. Once confirmed, I'll send you a password reset link.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Application:** Azure AD\n" +
-        "- **Reset Portal:** https://portal.example.com/password-reset\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Send reset link] [Edit details] [Cancel]",
+        "To reset your Azure AD password, please confirm the following details:\n\n- **User:** John Doe (john.doe@rc.com)\n- **Application:** Azure AD\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Reset Password] [Edit Details] [Cancel]",
+      "Reset Password":
+        "Your password reset request is being processed. You will receive a notification with further instructions once it's completed. [View Reset Status] [Cancel]",
+      "Password Reset Complete":
+        "Your Azure AD password has been successfully reset. A confirmation email has been sent to john.doe@rc.com.\n\n[Login with New Password] [Main Menu]",
+      "Login with New Password":
+        "You can now log in with your new password. If you encounter any issues, please contact IT support.\n\n[Main Menu] [Contact IT Support]",
+      "View Reset Status":
+        "Current status: Password reset completed. Please check your email for further instructions.\n\n[Login with New Password] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your password reset request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Reset Password] [Cancel]",
+      "Cancel": "**1.** Your password reset request has been cancelled.\n\n[Main menu] [Reset Password]",
       "My password expired, what should I do?":
-        "**1.** Your password has expired. I'll check your account and guide you through the reset process...\n\n---\n\n" +
-        "**2.** Resetting an expired password requires identity verification. This ensures only you can update your credentials.\n\n---\n\n" +
-        "**3.** Please confirm your username and recovery contact. I'll send a reset link once confirmed.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Application:** Azure AD\n" +
-        "- **Reset Portal:** https://portal.example.com/password-reset\n\n" +
-        "[Send reset link] [Edit details] [Cancel]",
+        "To reset your expired password, please confirm the following details:\n\n- **User:** John Doe (john.doe@rc.com)\n- **Application:** Azure AD\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Reset Expired Password] [Edit Details] [Cancel]",
+      "Reset Expired Password":
+        "Your expired password reset request is being processed. You will receive a notification with further instructions once it's completed. [View Reset Status] [Cancel]",
       "How do I change my password?":
-        "**1.** You'd like to change your password. Let me check your current status and available options...\n\n---\n\n" +
-        "**2.** Changing your password regularly helps keep your account secure. I'll guide you through the process for your device or platform.\n\n---\n\n" +
-        "**3.** Would you like to change your password via the Azure portal, Windows device, or another method?\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Portal:** https://portal.example.com/account\n\n" +
-        "[Change via Azure portal] [Change on Windows] [Other method] [Cancel]",
+        "To change your password, please confirm the following details:\n\n- **User:** John Doe (john.doe@rc.com)\n- **Application:** Azure AD\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Change Password] [Edit Details] [Cancel]",
+      "Change Password":
+        "Your password change request is being processed. You will receive a notification with further instructions once it's completed. [View Change Status] [Cancel]",
+      "View Change Status":
+        "Current status: Password change completed. Please check your email for further instructions.\n\n[Login with New Password] [Main Menu]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'unlock-account': {
     prompts: [
-      { text: "How do I unlock my account?", highlighted: "unlock my account" },
-      { text: "I forgot my password, what should I do?", highlighted: "forgot password" },
-      { text: "How do I reset my security questions?", highlighted: "reset security questions" },
+      { text: "How do I unlock my Azure AD account?", highlighted: "unlock my Azure AD account" },
+      { text: "I'm locked out, can you help?", highlighted: "locked out" },
     ],
     responses: {
-      "How do I unlock my account?":
-        "**1.** I see you want to unlock your account. Let me check your account status and prepare the unlock process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for an unlock. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm your username and whether you have access to your recovery email or phone. Once confirmed, I'll send you a unlock link.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Application:** Azure AD\n" +
-        "- **Unlock Portal:** https://portal.example.com/unlock-account\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Unlock account] [Edit details] [Cancel]",
-      "I forgot my password, what should I do?":
-        "**1.** Your password has expired. I'll check your account and guide you through the reset process...\n\n---\n\n" +
-        "**2.** Resetting an expired password requires identity verification. This ensures only you can update your credentials.\n\n---\n\n" +
-        "**3.** Please confirm your username and recovery contact. I'll send a reset link once confirmed.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Application:** Azure AD\n" +
-        "- **Reset Portal:** https://portal.example.com/password-reset\n\n" +
-        "[Send reset link] [Edit details] [Cancel]",
-      "How do I reset my security questions?":
-        "**1.** You'd like to reset your security questions. Let me check your current status and available options...\n\n---\n\n" +
-        "**2.** Resetting security questions requires identity verification. This ensures only you can update your security questions.\n\n---\n\n" +
-        "**3.** Please confirm your username and recovery contact. I'll send a reset link once confirmed.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Application:** Azure AD\n" +
-        "- **Reset Portal:** https://portal.example.com/reset-security-questions\n\n" +
-        "[Send reset link] [Edit details] [Cancel]",
+      "How do I unlock my Azure AD account?":
+        "**1.** I see your account is locked. Let's get you back in.\n\n---\n\n" +
+        "**2.** Please confirm your username and choose a verification method:\n- Receive a code by email\n- Receive a code by SMS\n\n[Send code to email] [Send code to SMS] [Contact IT support] [Cancel]\n\n---\n\n" +
+        "**3.** Once verified, I'll unlock your account and notify you. If you're still having trouble, I can escalate to IT support.",
+      "I'm locked out, can you help?":
+        "**1.** Sorry to hear you're locked out. I can help you regain access.\n\n---\n\n" +
+        "**2.** Please provide your username or employee ID.\n\n[Enter username] [Contact IT support] [Cancel]\n\n---\n\n" +
+        "**3.** I'll verify your identity and unlock your account. If you need urgent access, I can escalate your request.",
     }
   },
   'request-software': {
     prompts: [
       { text: "How do I request new software?", highlighted: "request new software" },
-      { text: "I need a new software, what should I do?", highlighted: "need new software" },
-      { text: "How do I check software availability?", highlighted: "check software availability" },
+      { text: "Can I get access to Power BI?", highlighted: "access to Power BI" },
+      { text: "Can you give me access to Zoom?", highlighted: "access to Zoom" },
     ],
     responses: {
       "How do I request new software?":
-        "**1.** I see you want to request new software. Let me check your account status and prepare the request process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for software request. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the software you need and provide the necessary details. Once confirmed, I'll send your request to the IT department.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Software:** Microsoft Office\n" +
-        "- **Request Portal:** https://portal.example.com/software-request\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Send request] [Edit details] [Cancel]",
-      "I need a new software, what should I do?":
-        "**1.** You need a new software. Let me check your account status and prepare the request process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for software request. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the software you need and provide the necessary details. Once confirmed, I'll send your request to the IT department.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Software:** Microsoft Office\n" +
-        "- **Request Portal:** https://portal.example.com/software-request\n\n" +
-        "[Send request] [Edit details] [Cancel]",
-      "How do I check software availability?":
-        "**1.** You want to check software availability. Let me check the available options...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to check software availability.\n\n---\n\n" +
-        "**3.** Would you like me to check software availability for you?",
+        "To request new software, please confirm the following details:\n\n- **User:** Priya Nair (priya.nair@rc.com)\n- **Department:** Cloud Security\n- **Software:** Microsoft Defender for Cloud\n- **License Type:** Enterprise E5\n- **Business Justification:** Security compliance for new client onboarding (Project Orion)\n- **Requested Start Date:** 2024-07-22\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Software Request] [Edit Details] [Cancel]",
+      "Submit Software Request":
+        "Your software request for Microsoft Defender for Cloud (Enterprise E5) is pending manager approval. You will be notified once it is approved or if further information is needed. [View Request Status] [Cancel]",
+      "Software Request Complete":
+        "Your request for Microsoft Defender for Cloud (Enterprise E5) has been approved. License Agreement: LicenseAgreement_DefenderCloud_August2024.pdf. Installation will begin on July 23, 2024.\n\n[Open in Software Portal] [Request Another Software] [Main Menu]",
+      "Open in Software Portal":
+        "You can now manage your software in the Acme Software Portal.\n\n[Main Menu] [Contact IT Support]",
+      "Request Another Software":
+        "Let's start a new software request. Please provide the software name and purpose. [Main Menu] [Cancel]",
+      "View Request Status":
+        "Current status: Pending manager approval.\n\n[Contact Manager] [Main Menu]",
+      "Edit Details": "**1.** Please update the following details for your software request.\n\n- Software Name\n- License Type\n- Business Justification\n- Requested Start Date\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Software Request] [Cancel]",
+      "Cancel": "**1.** Your software request has been cancelled.\n\n[Main menu] [Submit Software Request]",
+      "Can I get access to Power BI?":
+        "To request access to Power BI, please confirm the following details:\n\n- **User:** Priya Nair (priya.nair@rc.com)\n- **Department:** Cloud Security\n- **Software:** Microsoft Power BI\n- **License Type:** Pro\n- **Business Justification:** Data visualization for Project Orion\n- **Requested Start Date:** 2024-07-22\n\n[Submit Software Request] [Edit Details] [Cancel]",
+      "Can you give me access to Zoom?":
+        "To request access to Zoom, please confirm the following details:\n\n- **User:** Priya Nair (priya.nair@rc.com)\n- **Department:** Cloud Security\n- **Software:** Zoom\n- **License Type:** Business Plus\n- **Business Justification:** Virtual client meetings for Project Orion\n- **Requested Start Date:** 2024-07-22\n\n[Submit Software Request] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'group-management': {
     prompts: [
-      { text: "How do I view my group memberships?", highlighted: "view my group memberships" },
-      { text: "I need to view my group memberships, what should I do?", highlighted: "need to view group memberships" },
-      { text: "How do I manage group permissions?", highlighted: "manage group permissions" },
+      { text: "How do I add a user to a group?", highlighted: "add a user to a group" },
+      { text: "How can I see all members of a group?", highlighted: "see all members of a group" },
+      { text: "Am I part of the product group?", highlighted: "part of the product group" },
     ],
     responses: {
-      "How do I view my group memberships?":
-        "**1.** I see you want to view your group memberships. Let me check your group memberships...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to view your group memberships.\n\n---\n\n" +
-        "**3.** Would you like me to view your group memberships for you?",
-      "I need to view my group memberships, what should I do?":
-        "**1.** You need to view your group memberships. Let me check your group memberships...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to view your group memberships.\n\n---\n\n" +
-        "**3.** Would you like me to view your group memberships for you?",
-      "How do I manage group permissions?":
-        "**1.** You want to manage group permissions. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** Managing group permissions helps ensure the security and efficiency of your group.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through managing group permissions?",
+      "How do I add a user to a group?":
+        "To add a user to a group, please confirm the following details:\n\n- **User:** Aisha El-Sayed (aisha.elsayed@rc.com)\n- **Group:** Customer Success - EMEA\n- **Role:** Senior Account Manager\n- **Access Expiration:** 2025-01-31\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Add User to Group] [Edit Details] [Cancel]",
+      "Add User to Group":
+        "Adding user to the group. Awaiting group owner approval. [View Group Status] [Cancel]",
+      "Group Update Complete":
+        "Aisha El-Sayed has been added to the Customer Success - EMEA group. Group ID: GRP-2024-EMEA-002.\n\n[View Group Members] [Add Another User] [Main Menu]",
+      "View Group Members":
+        "Current members of Customer Success - EMEA:\n- Aisha El-Sayed (Senior Account Manager, until 2025-01-31)\n- Tomás García (Director)\n- Fatima Zahra (Support Lead)\n\n[Export List] [Manage Permissions] [Main Menu]",
+      "Export List":
+        "The group membership list (CustomerSuccessEMEA_August2024.csv) has been exported and sent to your email.\n\n[Main Menu] [Manage Permissions] [Cancel]",
+      "Manage Permissions":
+        "Group permissions have been updated.\n\n[Main Menu] [Cancel]",
+      "Add Another User":
+        "Let's add another user to a group. Please provide the user and group details. [Main Menu] [Cancel]",
+      "Edit Details": "**1.** Please update the following details for your group management request.\n\n- User Name\n- Group Name\n- Role\n- Access Expiration\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Add User to Group] [Cancel]",
+      "Cancel": "**1.** Your group management request has been cancelled.\n\n[Main menu] [Add User to Group]",
+      "How can I see all members of a group?":
+        "To view group members, please confirm the following details:\n\n- **Group Name:** Customer Success - EMEA\n\n[View Group Members] [Edit Details] [Cancel]",
+      "Am I part of the product group?":
+        "Checking your membership in the Customer Success - EMEA group...\n\n[View Membership Status] [Cancel]",
+      "View Membership Status":
+        "You are a member of the Customer Success - EMEA group as Senior Account Manager.\n\n[Check Another Group] [Main Menu] [Cancel]",
+      "Check Another Group":
+        "Please enter the group name to check your membership. [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'user-provisioning': {
     prompts: [
-      { text: "How do I create a new user account?", highlighted: "create a new user account" },
-      { text: "I need to create a new user account, what should I do?", highlighted: "need to create new user account" },
-      { text: "How do I modify user permissions?", highlighted: "modify user permissions" },
+      { text: "How do I create a new user in Azure AD?", highlighted: "create a new user" },
+      { text: "How do I assign a role to a user?", highlighted: "assign a role to a user" },
     ],
     responses: {
-      "How do I create a new user account?":
-        "**1.** I see you want to create a new user account. Let me check your account status and prepare the account creation process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for user creation. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the user's full name, work email address, department, and role. Once confirmed, I'll create the user account.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Department:** IT\n" +
-        "- **Role:** System Administrator\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Create user account] [Edit details] [Cancel]",
-      "I need to create a new user account, what should I do?":
-        "**1.** You need to create a new user account. Let me check your account status and prepare the account creation process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for user creation. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the user's full name, work email address, department, and role. Once confirmed, I'll create the user account.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Department:** IT\n" +
-        "- **Role:** System Administrator\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Create user account] [Edit details] [Cancel]",
-      "How do I modify user permissions?":
-        "**1.** You want to modify user permissions. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** Modifying user permissions helps ensure the security and efficiency of your user management.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through modifying user permissions?",
+      "How do I create a new user in Azure AD?":
+        "To create a new user, please confirm the following details:\n\n- **User Name:** Jun Ho Park\n- **Email:** junho.park@rc.com\n- **Department:** Finance\n- **Role:** Financial Analyst\n- **Start Date:** 2024-08-05\n- **Manager:** Emily Carter\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Create User] [Edit Details] [Cancel]",
+      "Create User":
+        "The new user account is being created in Azure AD. Awaiting manager approval. [View Provisioning Status] [Cancel]",
+      "User Provisioning Complete":
+        "The new user account for Jun Ho Park has been created successfully in Azure AD. User ID: USR-2024-992.\n\n[Create Another User] [Main Menu]",
+      "Create Another User":
+        "Let's start a new user provisioning request. Please provide the user details. [Main Menu] [Cancel]",
+      "View Provisioning Status":
+        "Current status: Awaiting manager approval.\n\n[Contact Manager] [Main Menu]",
+      "Edit Details": "**1.** Please update the following details for your user provisioning request.\n\n- User Name\n- Department\n- Role\n- Start Date\n- Manager\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Create User] [Cancel]",
+      "Cancel": "**1.** Your user provisioning request has been cancelled.\n\n[Main menu] [Create User]",
+      "How do I assign a role to a user?":
+        "To assign a role, please confirm the following details:\n\n- **User:** Jun Ho Park (junho.park@rc.com)\n- **Role:** Financial Analyst\n- **Department:** Finance\n\n[Assign Role] [Edit Details] [Cancel]",
+      "Assign Role":
+        "The role assignment is being processed. Awaiting IT admin approval. [View Role Status] [Cancel]",
+      "User Role Assignment Complete":
+        "The Financial Analyst role has been assigned to Jun Ho Park.\n\n[Assign Another Role] [Main Menu]",
+      "Assign Another Role":
+        "Let's assign another role. Please provide the user and role details. [Main Menu] [Cancel]",
+      "View Role Status":
+        "Current status: Role assigned and active.\n\n[Assign Another Role] [Main Menu]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'app-registration': {
     prompts: [
-      { text: "How do I register a new app?", highlighted: "register a new app" },
-      { text: "I need to register a new app, what should I do?", highlighted: "need to register new app" },
-      { text: "How do I configure app permissions?", highlighted: "configure app permissions" },
+      { text: "How do I register a new app in Azure AD?", highlighted: "register a new app" },
+      { text: "How do I configure permissions for an app?", highlighted: "configure permissions for an app" },
     ],
     responses: {
-      "How do I register a new app?":
-        "**1.** I see you want to register a new app. Let me check your account status and prepare the app registration process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for app registration. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the app name, description, and required permissions. Once confirmed, I'll send your app registration request to the IT department.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **App Name:** RC Agentic AI Playground\n" +
-        "- **Description:** A platform for testing and learning about AI\n" +
-        "- **Permissions:** Full access to all features and data\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Register app] [Edit details] [Cancel]",
-      "I need to register a new app, what should I do?":
-        "**1.** You need to register a new app. Let me check your account status and prepare the app registration process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for app registration. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the app name, description, and required permissions. Once confirmed, I'll send your app registration request to the IT department.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **App Name:** RC Agentic AI Playground\n" +
-        "- **Description:** A platform for testing and learning about AI\n" +
-        "- **Permissions:** Full access to all features and data\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Register app] [Edit details] [Cancel]",
-      "How do I configure app permissions?":
-        "**1.** You want to configure app permissions. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** Configuring app permissions helps ensure the security and efficiency of your app management.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through configuring app permissions?",
+      "How do I register a new app in Azure AD?":
+        "To register a new app, please confirm the following details:\n\n- **App Name:** Event Scheduler\n- **Owner:** Sofia Rossi (sofia.rossi@rc.com)\n- **Purpose:** Internal event management for Acme\n- **Environment:** Production\n- **Requested Go-Live:** 2024-08-12\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Register App] [Edit Details] [Cancel]",
+      "Register App":
+        "Your app registration is being processed in Azure AD. Awaiting security review. [View Registration Status] [Cancel]",
+      "App Registration Complete":
+        "The new app 'Event Scheduler' has been registered successfully in Azure AD. App ID: APP-2024-ES-001.\n\n[Open in Azure Portal] [Register Another App] [Main Menu]",
+      "Open in Azure Portal":
+        "You can now manage your app in the Azure Portal.\n\n[Main Menu] [Contact App Support]",
+      "Register Another App":
+        "Let's start a new app registration. Please provide the app name and purpose. [Main Menu] [Cancel]",
+      "View Registration Status":
+        "Current status: Awaiting security review.\n\n[Contact Security Team] [Main Menu]",
+      "Edit Details": "**1.** Please update the following details for your app registration request.\n\n- App Name\n- Owner\n- Purpose\n- Environment\n- Requested Go-Live\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Register App] [Cancel]",
+      "Cancel": "**1.** Your app registration request has been cancelled.\n\n[Main menu] [Register App]",
+      "How do I configure permissions for an app?":
+        "To configure app permissions, please confirm the following details:\n\n- **App Name:** Event Scheduler\n- **Permissions:** User.Read, Calendar.ReadWrite, Mail.Send\n- **Scope:** Production\n\n[Update Permissions] [Edit Details] [Cancel]",
+      "Update Permissions":
+        "The app permissions update is being processed. Awaiting admin approval. [View Permissions Status] [Cancel]",
+      "App Permissions Update Complete":
+        "The permissions for 'Event Scheduler' have been updated successfully.\n\n[Open in Azure Portal] [Update More Permissions] [Main Menu]",
+      "Update More Permissions":
+        "Let's update more app permissions. Please provide the app name and permissions. [Main Menu] [Cancel]",
+      "View Permissions Status":
+        "Current status: Permissions updated and active.\n\n[Open in Azure Portal] [Main Menu]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'audit-logs': {
     prompts: [
-      { text: "How do I view audit logs?", highlighted: "view audit logs" },
-      { text: "I need to view audit logs, what should I do?", highlighted: "need to view audit logs" },
-      { text: "How do I filter audit logs?", highlighted: "filter audit logs" },
+      { text: "How do I view Azure AD audit logs?", highlighted: "view Azure AD audit logs" },
+      { text: "Can I export audit logs?", highlighted: "export audit logs" },
     ],
     responses: {
-      "How do I view audit logs?":
-        "**1.** I see you want to view audit logs. Let me check your audit logs...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to view audit logs.\n\n---\n\n" +
-        "**3.** Would you like me to view your audit logs for you?",
-      "I need to view audit logs, what should I do?":
-        "**1.** You need to view audit logs. Let me check your audit logs...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to view audit logs.\n\n---\n\n" +
-        "**3.** Would you like me to view your audit logs for you?",
-      "How do I filter audit logs?":
-        "**1.** You want to filter audit logs. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** Filtering audit logs helps ensure the security and efficiency of your audit management.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through filtering audit logs?",
+      "How do I view Azure AD audit logs?":
+        "To view Azure AD audit logs, please confirm the following details:\n\n- **User:** Gabriel Müller (gabriel.muller@rc.com)\n- **Date Range:** 2024-07-10 to 2024-07-24\n- **Log Type:** User sign-in and admin activity\n- **Department:** IT Security\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Retrieve Audit Logs] [Edit Details] [Cancel]",
+      "Retrieve Audit Logs":
+        "Retrieving the requested audit logs. Awaiting export job completion. [View Logs Status] [Cancel]",
+      "Audit Logs Retrieval Complete":
+        "The requested Azure AD audit logs are now available. Log ID: LOG-2024-789.\n\n[Download as CSV] [Download as PDF] [Main Menu]",
+      "Download as CSV":
+        "The audit logs have been exported as a CSV file (AuditLogs_July2024.csv) and sent to your email.\n\n[Main Menu] [Cancel]",
+      "Download as PDF":
+        "The audit logs have been exported as a PDF file (AuditLogs_July2024.pdf) and sent to your email.\n\n[Main Menu] [Cancel]",
+      "View Logs Status":
+        "Current status: Export job completed. Logs available for download.\n\n[Download as CSV] [Download as PDF] [Main Menu]",
+      "Edit Details": "**1.** Please update the following details for your audit logs request.\n\n- Date Range\n- Log Type\n- Department\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Retrieve Audit Logs] [Cancel]",
+      "Cancel": "**1.** Your audit logs request has been cancelled.\n\n[Main menu] [Retrieve Audit Logs]",
+      "Can I export audit logs?":
+        "To export audit logs, please confirm the following details:\n\n- **User:** Gabriel Müller (gabriel.muller@rc.com)\n- **Date Range:** 2024-07-10 to 2024-07-24\n- **Format:** CSV\n\n[Download as CSV] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'help-support': {
     prompts: [
       { text: "How do I contact support?", highlighted: "contact support" },
-      { text: "I need help, what should I do?", highlighted: "need help" },
-      { text: "How do I access Azure AD documentation?", highlighted: "access Azure AD documentation" },
+      { text: "Where can I find Azure AD documentation?", highlighted: "Azure AD documentation" },
     ],
     responses: {
       "How do I contact support?":
-        "**1.** I see you need help. Let me check your account status and prepare the support request process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for support. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the nature of your issue and provide the necessary details. Once confirmed, I'll send your support request to the IT helpdesk.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Issue:** Unable to reset password\n" +
-        "- **Details:** Azure AD password reset process not completing\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Send support request] [Edit details] [Cancel]",
-      "I need help, what should I do?":
-        "**1.** You need help. Let me check your account status and prepare the support request process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for support. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the nature of your issue and provide the necessary details. Once confirmed, I'll send your support request to the IT helpdesk.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Issue:** Unable to reset password\n" +
-        "- **Details:** Azure AD password reset process not completing\n\n" +
-        "[Send support request] [Edit details] [Cancel]",
-      "How do I access Azure AD documentation?":
-        "**1.** You want to access Azure AD documentation. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to access Azure AD documentation.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through accessing Azure AD documentation?",
+        "To contact support, please confirm the following details:\n\n- **User:** Lila Dubois (lila.dubois@rc.com)\n- **Issue:** MFA not working on mobile device\n- **Priority:** Critical\n- **Preferred contact:** Teams Chat\n- **Ticket Number:** TKT-2024-1123\n- **Requested Callback:** 2024-07-24 10:00 AM\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Support Request] [Edit Details] [Cancel]",
+      "Submit Support Request":
+        "Your support request is being submitted. Awaiting IT helpdesk assignment. [View Request Status] [Cancel]",
+      "Support Request Complete":
+        "Your support request has been assigned to an IT helpdesk agent. Ticket Number: TKT-2024-1123. You will be contacted via Teams Chat at 10:00 AM on July 24, 2024.\n\n[Open in Helpdesk Portal] [Submit Another Support Request] [Main Menu]",
+      "Open in Helpdesk Portal":
+        "You can now view your ticket and chat with support in the Helpdesk Portal.\n\n[Main Menu] [Contact IT Support]",
+      "Submit Another Support Request":
+        "Let's start a new support request. Please describe your issue. [Main Menu] [Cancel]",
+      "View Request Status":
+        "Current status: Awaiting IT helpdesk assignment.\n\n[Open in Helpdesk Portal] [Main Menu]",
+      "Edit Details": "**1.** Please update the following details for your support request.\n\n- Issue\n- Priority\n- Preferred contact\n- Requested Callback\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Support Request] [Cancel]",
+      "Cancel": "**1.** Your help/support request has been cancelled.\n\n[Main menu] [Submit Support Request]",
+      "Where can I find Azure AD documentation?":
+        "Azure AD documentation is available online. Please select an option below.\n\n[Get Documentation Link] [Search Topic] [Main Menu] [Cancel]",
+      "Get Documentation Link":
+        "Here is the direct link to the official Azure AD documentation.\n\n[Search Topic] [Main Menu] [Cancel]",
+      "Search Topic":
+        "The documentation for your topic has been found and provided.\n\n[Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'leave-request': {
@@ -428,29 +430,19 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "I need to take a day off next week":
-        "**1.** You need to take a day off next week. Let me check your leave balance and guide you through the request process...\n\n---\n\n" +
-        "**2.** Taking a day off helps ensure your well-being and productivity.\n\n---\n\n" +
-        "**3.** Please confirm the date(s) of leave, type of leave (sick, annual, etc.), and reason for leave. I'll then guide you through the submission process.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Date(s) of leave:** 2024-03-15\n" +
-        "- **Type of leave:** Sick\n" +
-        "- **Reason for leave:** Medical appointment\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Submit leave request] [Edit details] [Cancel]",
-      "I need to request a day off, what should I do?":
-        "**1.** You need to request a day off. Let me check your leave balance and guide you through the request process...\n\n---\n\n" +
-        "**2.** Taking a day off helps ensure your well-being and productivity.\n\n---\n\n" +
-        "**3.** Please confirm the date(s) of leave, type of leave (sick, annual, etc.), and reason for leave. I'll then guide you through the submission process.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Date(s) of leave:** 2024-03-15\n" +
-        "- **Type of leave:** Sick\n" +
-        "- **Reason for leave:** Medical appointment\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Submit leave request] [Edit details] [Cancel]",
-      "How do I check my leave balance?":
-        "**1.** You want to check your leave balance. Let me check your leave balance...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to check your leave balance.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through checking your leave balance?",
+        "To submit your leave request, please confirm the following details:\n\n- **User:** Ava Patel (ava.patel@rc.com)\n- **Date(s) of leave:** 2024-07-15\n- **Type of leave:** Vacation\n- **Reason:** Family event\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Leave Request] [Edit Details] [Cancel]",
+      "Submit Leave Request":
+        "Your leave request is being processed. You will be notified once it is approved or if further information is needed. [View Leave Status] [Cancel]",
+      "Leave Request Complete":
+        "Your leave request for 2024-07-15 (Vacation) has been approved and recorded for Ava Patel. You will receive a confirmation email shortly.\n\n[View Leave Balance] [Main Menu]",
+      "View Leave Balance":
+        "Your current leave balance is: 14 days remaining.\n\n[Request Another Leave] [Main Menu]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
+      "Request Another Leave":
+        "Let's start a new leave request. Please provide your leave details. [Main Menu] [Cancel]",
+      "Edit Details": "**1.** Please provide the updated details for your leave request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Leave Request] [Cancel]",
+      "Cancel": "**1.** Your leave request has been cancelled.\n\n[Main menu] [Submit Leave Request]",
     }
   },
   'payslip-download': {
@@ -461,17 +453,23 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I download my payslip?":
-        "**1.** I see you want to download your payslip. Let me check your payslip portal and guide you through the download process...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to download your payslip.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through downloading your payslip?",
-      "I need to download my payslip, what should I do?":
-        "**1.** You need to download your payslip. Let me check your payslip portal and guide you through the download process...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to download your payslip.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through downloading your payslip?",
+        "To download your payslip, please confirm the following details:\n\n- **User:** Liam Chen (liam.chen@rc.com)\n- **Month:** July 2024\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Download Payslip] [Edit Details] [Cancel]",
+      "Download Payslip":
+        "Your payslip is being prepared for download. You will be notified once it is ready. [View Download Status] [Cancel]",
+      "Payslip Download Complete":
+        "Your payslip for July 2024 (Payslip_July2024.pdf) has been downloaded and sent to your email.\n\n[Download Another Payslip] [Main Menu]",
+      "Download Another Payslip":
+        "Let's download another payslip. Please provide the month and year. [Main Menu] [Cancel]",
+      "View Download Status":
+        "Current status: Payslip downloaded and sent to your email.\n\n[Download Another Payslip] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your payslip download request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Download Payslip] [Cancel]",
+      "Cancel": "**1.** Your payslip download request has been cancelled.\n\n[Main menu] [Download Payslip]",
       "How do I view payslip history?":
-        "**1.** You want to view your payslip history. Let me check your payslip history...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to view your payslip history.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through viewing your payslip history?",
+        "To view your payslip history, please confirm the following details:\n\n- **User:** Liam Chen (liam.chen@rc.com)\n- **Date Range:** Last 12 months\n\n[View Payslip History] [Edit Details] [Cancel]",
+      "View Payslip History":
+        "Your payslip history for the last 12 months is displayed below.\n\n[Download Payslip] [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'update-personal-info': {
@@ -482,29 +480,21 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I update my contact details?":
-        "**1.** I see you want to update your contact details. Let me check your personal information portal and guide you through the update process...\n\n---\n\n" +
-        "**2.** Updating your contact details helps ensure the accuracy and security of your information.\n\n---\n\n" +
-        "**3.** Please confirm the new address, phone, or emergency contact. I'll then update your contact details.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **New Address:** 123 Main St, Anytown, USA\n" +
-        "- **New Phone:** 555-1234\n" +
-        "- **New Emergency Contact:** Jane Doe (jane.doe@example.com)\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Update contact details] [Edit details] [Cancel]",
-      "I need to update my contact details, what should I do?":
-        "**1.** You need to update your contact details. Let me check your personal information portal and guide you through the update process...\n\n---\n\n" +
-        "**2.** Updating your contact details helps ensure the accuracy and security of your information.\n\n---\n\n" +
-        "**3.** Please confirm the new address, phone, or emergency contact. I'll then update your contact details.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **New Address:** 123 Main St, Anytown, USA\n" +
-        "- **New Phone:** 555-1234\n" +
-        "- **New Emergency Contact:** Jane Doe (jane.doe@example.com)\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Update contact details] [Edit details] [Cancel]",
+        "To update your contact details, please confirm the following information:\n\n- **User:** Sophia Williams (sophia.williams@rc.com)\n- **New Contact Details:** 555-0199, 123 Oak St, Springfield\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Update Contact Details] [Edit Details] [Cancel]",
+      "Update Contact Details":
+        "Your contact details are being updated. You will be notified once the changes are complete. [View Update Status] [Cancel]",
+      "Contact Details Update Complete":
+        "Your contact details for Sophia Williams have been successfully updated. A confirmation email has been sent to sophia.williams@rc.com.\n\n[Review Personal Information] [Main Menu]",
+      "Review Personal Information":
+        "Your current personal information is displayed below.\n\n[Update Contact Details] [Main Menu] [Cancel]",
+      "View Update Status":
+        "Current status: Contact details updated successfully.\n\n[Review Personal Information] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your contact information.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Update Contact Details] [Cancel]",
+      "Cancel": "**1.** Your contact details update request has been cancelled.\n\n[Main menu] [Update Contact Details]",
       "How do I review my personal information?":
-        "**1.** You want to review your personal information. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** Reviewing your personal information helps ensure the accuracy and security of your information.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through reviewing your personal information?",
+        "To review your personal information, please confirm the following details:\n\n- **User:** Sophia Williams (sophia.williams@rc.com)\n\n[Review Personal Information] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'hr-helpdesk': {
@@ -515,27 +505,27 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I contact HR support?":
-        "**1.** I see you need HR help. Let me check your HR support portal and guide you through the contact process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for HR support. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the nature of your HR issue and provide the necessary details. Once confirmed, I'll send your HR support request to the HR department.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Issue:** Need help with HR query\n" +
-        "- **Details:** I need guidance on HR policies and procedures\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Send HR support request] [Edit details] [Cancel]",
-      "I need HR help, what should I do?":
-        "**1.** You need HR help. Let me check your HR support portal and guide you through the contact process...\n\n---\n\n" +
-        "**2.** For security, I need to confirm your identity and ensure your account is eligible for HR support. This helps protect your information.\n\n---\n\n" +
-        "**3.** Please confirm the nature of your HR issue and provide the necessary details. Once confirmed, I'll send your HR support request to the HR department.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Issue:** Need help with HR query\n" +
-        "- **Details:** I need guidance on HR policies and procedures\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Send HR support request] [Edit details] [Cancel]",
+        "To contact HR support, please confirm the following details:\n\n- **User:** Noah Kim (noah.kim@rc.com)\n- **Issue:** Payroll query\n- **Preferred contact:** Email\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit HR Request] [Edit Details] [Cancel]",
+      "Submit HR Request":
+        "Your request is being submitted to HR support. You will be notified once an HR specialist is assigned. [View Request Status] [Cancel]",
+      "HR Request Complete":
+        "Your HR request has been assigned to an HR specialist. You will be contacted at noah.kim@rc.com within 1 business day.\n\n[Submit Another HR Request] [Main Menu]",
+      "Submit Another HR Request":
+        "Let's start a new HR helpdesk request. Please describe your issue. [Main Menu] [Cancel]",
+      "View Request Status":
+        "Current status: Assigned to HR specialist. Awaiting response.\n\n[Submit Another HR Request] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your HR helpdesk request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit HR Request] [Cancel]",
+      "Cancel": "**1.** Your HR helpdesk request has been cancelled.\n\n[Main menu] [Submit HR Request]",
       "How do I browse HR FAQs and policies?":
-        "**1.** You want to browse HR FAQs and policies. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to browse HR FAQs and policies.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through browsing HR FAQs and policies?",
+        "HR FAQs and policies are displayed below.\n\n[View Policy] [Contact HR] [Main Menu] [Cancel]",
+      "View Policy":
+        "The selected HR policy is displayed below.\n\n[Contact HR] [Main Menu] [Cancel]",
+      "Contact HR":
+        "You are being connected to an HR specialist. Please wait for further instructions.\n\n[Main Menu] [Cancel]",
+      "I need HR help, what should I do?":
+        "Let's get started with your HR helpdesk request. Please describe your issue. [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'resource-onboarding': {
@@ -546,27 +536,21 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I initiate onboarding?":
-        "**1.** I see you want to initiate onboarding. Let me check your onboarding portal and guide you through the initiation process...\n\n---\n\n" +
-        "**2.** Initiating onboarding helps ensure a smooth transition and integration into your new role or team.\n\n---\n\n" +
-        "**3.** Please confirm the necessary details for onboarding. Once confirmed, I'll initiate your onboarding.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Resource:** New Employee\n" +
-        "- **Onboarding Portal:** https://portal.example.com/onboarding\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Initiate onboarding] [Edit details] [Cancel]",
-      "I need to initiate onboarding, what should I do?":
-        "**1.** You need to initiate onboarding. Let me check your onboarding portal and guide you through the initiation process...\n\n---\n\n" +
-        "**2.** Initiating onboarding helps ensure a smooth transition and integration into your new role or team.\n\n---\n\n" +
-        "**3.** Please confirm the necessary details for onboarding. Once confirmed, I'll initiate your onboarding.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Resource:** New Employee\n" +
-        "- **Onboarding Portal:** https://portal.example.com/onboarding\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Initiate onboarding] [Edit details] [Cancel]",
+        "To initiate onboarding, please confirm the following details:\n\n- **User:** Sophia Williams (sophia.williams@rc.com)\n- **Department:** IT\n- **Start Date:** 2024-07-17\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Initiate Onboarding] [Edit Details] [Cancel]",
+      "Initiate Onboarding":
+        "Onboarding has been initiated for the new resource. You will receive updates as tasks are completed. [View Onboarding Status] [Cancel]",
+      "Onboarding Initiated Complete":
+        "Onboarding has been successfully initiated for Sophia Williams. A welcome email has been sent to sophia.williams@rc.com.\n\n[Track Onboarding Progress] [Main Menu]",
+      "Track Onboarding Progress":
+        "Current onboarding progress and tasks are displayed below.\n\n[Initiate Another Onboarding] [Main Menu] [Cancel]",
+      "View Onboarding Status":
+        "Current status: Onboarding initiated and in progress.\n\n[Track Onboarding Progress] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your onboarding request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Initiate Onboarding] [Cancel]",
+      "Cancel": "**1.** Your onboarding request has been cancelled.\n\n[Main menu] [Initiate Onboarding]",
       "How do I track onboarding progress and tasks?":
-        "**1.** You want to track onboarding progress and tasks. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** Tracking onboarding progress and tasks helps ensure a smooth transition and integration into your new role or team.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through tracking onboarding progress and tasks?",
+        "To track onboarding progress and tasks, please confirm the following details:\n\n- **User:** Sophia Williams (sophia.williams@rc.com)\n\n[Track Onboarding Progress] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'travel-request': {
@@ -577,29 +561,25 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "I need to book a business trip":
-        "**1.** You need to book a business trip. Let me check your travel dates and destination...\n\n---\n\n" +
-        "**2.** I'll check available flight options and guide you through the booking process.\n\n---\n\n" +
-        "**3.** Please confirm the travel dates and destination. I'll then check available flight options and guide you through the booking process.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Travel Dates:** 2024-03-15 to 2024-03-18\n" +
-        "- **Destination:** New York, NY\n" +
-        "- **Purpose:** Business\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Book travel] [Edit details] [Cancel]",
-      "I need to raise a travel request, what should I do?":
-        "**1.** You need to raise a travel request. Let me check your travel dates and destination...\n\n---\n\n" +
-        "**2.** I'll check available flight options and guide you through the booking process.\n\n---\n\n" +
-        "**3.** Please confirm the travel dates and destination. I'll then check available flight options and guide you through the booking process.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Travel Dates:** 2024-03-15 to 2024-03-18\n" +
-        "- **Destination:** New York, NY\n" +
-        "- **Purpose:** Business\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Book travel] [Edit details] [Cancel]",
+        "To book your business trip, please confirm the following details:\n\n- **User:** Ethan Rivera (ethan.rivera@rc.com)\n- **Destination:** London\n- **Dates:** 2024-08-05 to 2024-08-09\n- **Purpose:** Client presentation\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Book Business Trip] [Edit Details] [Cancel]",
+      "Book Business Trip":
+        "Your business trip booking is being processed. You will receive confirmation and itinerary details soon. [View Booking Status] [Cancel]",
+      "Business Trip Booking Complete":
+        "Your business trip to London (2024-08-05 to 2024-08-09) for Ethan Rivera has been successfully booked. Confirmation and itinerary have been sent to your email.\n\n[Download Itinerary] [Book Another Trip] [Main Menu]",
+      "Download Itinerary":
+        "Your itinerary (London_August2024.pdf) has been downloaded and sent to your email.\n\n[Book Another Trip] [Main Menu]",
+      "Book Another Trip":
+        "Let's start a new business trip booking. Please provide your destination and dates. [Main Menu] [Cancel]",
+      "View Booking Status":
+        "Current status: Confirmed. All bookings are complete.\n\n[Download Itinerary] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your business trip booking.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Book Business Trip] [Cancel]",
+      "Cancel": "**1.** Your business trip booking request has been cancelled.\n\n[Main menu] [Book Business Trip]",
       "How do I check available flight options?":
-        "**1.** You want to check available flight options. Let me check the available flight options...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to check available flight options.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through checking available flight options?",
+        "To check available flight options, please confirm the following details:\n\n- **User:** Ethan Rivera (ethan.rivera@rc.com)\n- **Destination:** London\n- **Dates:** 2024-08-05 to 2024-08-09\n\n[Check Flight Options] [Edit Details] [Cancel]",
+      "Check Flight Options":
+        "Available flight options are displayed below.\n\n[Book Flight] [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'visa-processing': {
@@ -610,25 +590,21 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I start visa processing?":
-        "**1.** I see you need visa processing help. Let me check your visa processing portal and guide you through the initiation process...\n\n---\n\n" +
-        "**2.** Starting visa processing helps ensure a smooth transition and integration into your new role or team.\n\n---\n\n" +
-        "**3.** Please confirm the necessary details for visa processing. Once confirmed, I'll initiate your visa processing.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Visa Processing Portal:** https://portal.example.com/visa-processing\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Start visa processing] [Edit details] [Cancel]",
-      "I need visa processing help, what should I do?":
-        "**1.** You need visa processing help. Let me check your visa processing portal and guide you through the initiation process...\n\n---\n\n" +
-        "**2.** Starting visa processing helps ensure a smooth transition and integration into your new role or team.\n\n---\n\n" +
-        "**3.** Please confirm the necessary details for visa processing. Once confirmed, I'll initiate your visa processing.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Visa Processing Portal:** https://portal.example.com/visa-processing\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Start visa processing] [Edit details] [Cancel]",
+        "To start visa processing, please confirm the following details:\n\n- **User:** Mia Zhang (mia.zhang@rc.com)\n- **Visa Type:** Business\n- **Destination:** London\n- **Purpose:** Client presentation\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Start Visa Processing] [Edit Details] [Cancel]",
+      "Start Visa Processing":
+        "Your visa processing request is being submitted. You will be notified once it is approved or if further information is needed. [View Visa Status] [Cancel]",
+      "Visa Processing Complete":
+        "Your visa processing request for Mia Zhang has been approved. A confirmation email has been sent to mia.zhang@rc.com.\n\n[Check Visa Status] [Main Menu]",
+      "Check Visa Status":
+        "Current visa processing status: Approved. Please check your email for further instructions.\n\n[Start Another Visa Processing] [Main Menu]",
+      "View Visa Status":
+        "Current status: Visa processing approved.\n\n[Check Visa Status] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your visa processing request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Start Visa Processing] [Cancel]",
+      "Cancel": "**1.** Your visa processing request has been cancelled.\n\n[Main menu] [Start Visa Processing]",
       "How do I check visa processing status?":
-        "**1.** You want to check visa processing status. Let me check the visa processing status...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to check visa processing status.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through checking visa processing status?",
+        "To check your visa processing status, please confirm the following details:\n\n- **User:** Mia Zhang (mia.zhang@rc.com)\n\n[Check Visa Status] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'travel-booking': {
@@ -639,17 +615,27 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I book travel?":
-        "**1.** I see you want to book travel. Let me check your travel booking portal and guide you through the booking process...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to book travel.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through booking travel?",
-      "I need to book travel, what should I do?":
-        "**1.** You need to book travel. Let me check your travel booking portal and guide you through the booking process...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to book travel.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through booking travel?",
+        "To book your travel, please confirm the following details:\n\n- **User:** John Doe (john.doe@example.com)\n- **Destination:** New York\n- **Dates:** 2024-07-15 to 2024-07-20\n- **Purpose:** Client meeting\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Book Travel] [Edit Details] [Cancel]",
+      "Book Travel":
+        "Your travel booking is being processed. You will receive confirmation and itinerary details soon. [View Booking Status] [Cancel]",
+      "Travel Booking Complete":
+        "Your travel booking is complete. Confirmation and itinerary have been sent to your email.\n\n[Download Itinerary] [Book Another Trip] [Main Menu]",
+      "Download Itinerary":
+        "Your itinerary (NYC_July2024.pdf) has been downloaded and sent to your email.\n\n[Book Another Trip] [Main Menu]",
+      "Book Another Trip":
+        "Let's start a new travel booking. Please provide your destination and dates. [Main Menu] [Cancel]",
+      "View Booking Status":
+        "Current status: Confirmed. All bookings are complete.\n\n[Download Itinerary] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your travel booking.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Book Travel] [Cancel]",
+      "Cancel": "**1.** Your travel booking request has been cancelled.\n\n[Main menu] [Book Travel]",
       "How do I check out bookings via payment gateway?":
-        "**1.** You want to check out bookings via payment gateway. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to check out bookings via payment gateway.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through checking out bookings via payment gateway?",
+        "To complete your booking, please proceed to payment.\n\n[Pay Now] [Cancel]",
+      "Pay Now":
+        "Your payment has been processed successfully. Booking confirmation will be sent to your email.\n\n[Download Itinerary] [Main Menu]",
+      "I need to book travel, what should I do?":
+        "Let's get started with your travel booking. Please provide your destination and dates. [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'travel-approval': {
@@ -660,25 +646,23 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I get travel approval?":
-        "**1.** I see you need travel approval. Let me check your travel approval portal and guide you through the approval process...\n\n---\n\n" +
-        "**2.** Getting travel approval helps ensure a smooth transition and integration into your new role or team.\n\n---\n\n" +
-        "**3.** Please confirm the necessary details for travel approval. Once confirmed, I'll guide you through the approval process.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Travel Approval Portal:** https://portal.example.com/travel-approval\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Get travel approval] [Edit details] [Cancel]",
-      "I need travel approval, what should I do?":
-        "**1.** You need travel approval. Let me check your travel approval portal and guide you through the approval process...\n\n---\n\n" +
-        "**2.** Getting travel approval helps ensure a smooth transition and integration into your new role or team.\n\n---\n\n" +
-        "**3.** Please confirm the necessary details for travel approval. Once confirmed, I'll guide you through the approval process.\n\n" +
-        "- **User:** John Doe (john.doe@example.com)\n" +
-        "- **Travel Approval Portal:** https://portal.example.com/travel-approval\n\n" +
-        "👉 **Please confirm** if these details are correct, or let me know if you'd like to edit your request.\n\n" +
-        "[Get travel approval] [Edit details] [Cancel]",
+        "To request travel approval, please confirm the following details:\n\n- **User:** Ethan Rivera (ethan.rivera@rc.com)\n- **Trip:** London, 2024-08-05 to 2024-08-09\n- **Purpose:** Client presentation\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit for Approval] [Edit Details] [Cancel]",
+      "Submit for Approval":
+        "Your travel approval request is being submitted to your manager. You will be notified once it is approved or if further information is needed. [View Approval Status] [Cancel]",
+      "Travel Approval Complete":
+        "Your travel approval for London (2024-08-05 to 2024-08-09) for Ethan Rivera has been granted. A confirmation email has been sent to ethan.rivera@rc.com.\n\n[View Approval Details] [Main Menu]",
+      "View Approval Details":
+        "Your travel approval details are displayed below.\n\n[Submit Another Approval] [Main Menu] [Cancel]",
+      "Submit Another Approval":
+        "Let's start a new travel approval request. Please provide your trip details. [Main Menu] [Cancel]",
+      "View Approval Status":
+        "Current status: Approved. All travel arrangements can proceed.\n\n[View Approval Details] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your travel approval request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit for Approval] [Cancel]",
+      "Cancel": "**1.** Your travel approval request has been cancelled.\n\n[Main menu] [Submit for Approval]",
       "How do I check travel approval status?":
-        "**1.** You want to check travel approval status. Let me check the travel approval status...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to check travel approval status.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through checking travel approval status?",
+        "To check your travel approval status, please confirm the following details:\n\n- **User:** Ethan Rivera (ethan.rivera@rc.com)\n\n[View Approval Status] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'travel-expenses': {
@@ -689,17 +673,25 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I log travel expenses?":
-        "**1.** I see you need to log travel expenses. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** Logging travel expenses helps ensure accurate expense tracking and reimbursement.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through logging travel expenses?",
-      "I need to log travel expenses, what should I do?":
-        "**1.** You need to log travel expenses. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** Logging travel expenses helps ensure accurate expense tracking and reimbursement.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through logging travel expenses?",
+        "To log your travel expenses, please confirm the following details:\n\n- **User:** Mia Zhang (mia.zhang@rc.com)\n- **Trip:** London, 2024-08-05 to 2024-08-09\n- **Expense Type:** Flight, Hotel, Meals\n- **Amount:** $2,150\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Expense] [Edit Details] [Cancel]",
+      "Submit Expense":
+        "Your travel expense is being submitted for reimbursement. You will be notified once it is processed. [View Expense Status] [Cancel]",
+      "Travel Expense Submission Complete":
+        "Your travel expense for London (2024-08-05 to 2024-08-09) for Mia Zhang has been submitted and is under review by Finance. You will receive a notification once processed.\n\n[Log Another Expense] [Main Menu]",
+      "Log Another Expense":
+        "Let's log another travel expense. Please provide the details. [Main Menu] [Cancel]",
+      "View Expense Status":
+        "Current status: Submitted and under review.\n\n[Log Another Expense] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your travel expense.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Expense] [Cancel]",
+      "Cancel": "**1.** Your travel expense submission has been cancelled.\n\n[Main menu] [Submit Expense]",
       "How do I view travel expense reports?":
-        "**1.** You want to view travel expense reports. Let me guide you through the process...\n\n---\n\n" +
-        "**2.** I'll guide you through the process to view travel expense reports.\n\n---\n\n" +
-        "**3.** Would you like me to guide you through viewing travel expense reports?",
+        "To view your travel expense reports, please confirm the following details:\n\n- **User:** Mia Zhang (mia.zhang@rc.com)\n\n[View Expense Reports] [Edit Details] [Cancel]",
+      "View Expense Reports":
+        "Your travel expense reports are displayed below.\n\n[Export Report] [Main Menu] [Cancel]",
+      "Export Report":
+        "Your expense report has been exported and sent to your email.\n\n[Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'expense-claim': {
@@ -709,12 +701,23 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I submit an expense claim?":
-        "**1.** To submit an expense claim, please provide the expense details and upload receipts.\n\n---\n\n" +
-        "**2.** I'll guide you through the process and ensure all required information is included.\n\n---\n\n" +
-        "**3.** Would you like to start a new claim or view previous claims?\n\n[Start new claim] [View previous claims] [Cancel]",
+        "To submit an expense claim, please confirm the following details:\n\n- **User:** Olivia Turner (olivia.turner@rc.com)\n- **Expense Type:** Meals\n- **Amount:** $120\n- **Supporting Documents:** Receipt_July2024.pdf\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Expense Claim] [Edit Details] [Cancel]",
+      "Submit Expense Claim":
+        "Your expense claim is being submitted to Finance for processing. You will be notified once it is approved or if further information is needed. [View Claim Status] [Cancel]",
+      "Expense Claim Complete":
+        "Your expense claim for $120 (Meals) by Olivia Turner has been approved and processed. Reimbursement will be issued within 3 business days.\n\n[Submit Another Claim] [Main Menu]",
+      "Submit Another Claim":
+        "Let's submit another expense claim. Please provide the details. [Main Menu] [Cancel]",
+      "View Claim Status":
+        "Current status: Approved. Reimbursement in progress.\n\n[Submit Another Claim] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your expense claim.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Expense Claim] [Cancel]",
+      "Cancel": "**1.** Your expense claim request has been cancelled.\n\n[Main menu] [Submit Expense Claim]",
       "What documents are needed for expense claims?":
-        "**1.** For expense claims, you typically need to provide receipts, proof of payment, and a completed claim form.\n\n---\n\n" +
-        "**2.** Would you like a checklist or a sample form?\n\n[Get checklist] [Get sample form] [Cancel]",
+        "The required documents for your expense claim are listed below:\n- Receipts\n- Expense form\n- Approval (if required)\n\n[Upload Documents] [Main Menu] [Cancel]",
+      "Upload Documents":
+        "Your documents have been uploaded. Please confirm details to proceed.\n\n[Submit Expense Claim] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'reimbursement-status': {
@@ -724,12 +727,25 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I check my reimbursement status?":
-        "**1.** To check your reimbursement status, please provide your claim ID or date of submission.\n\n---\n\n" +
-        "**2.** I'll fetch the latest status from the finance system.\n\n---\n\n" +
-        "**3.** Would you like to receive updates via email or SMS?\n\n[Get status] [Receive updates] [Cancel]",
+        "To check your reimbursement status, please confirm the following details:\n\n- **User:** Daniel Lee (daniel.lee@rc.com)\n- **Claim ID:** RIMB-2024-456\n\n[Check Status] [Edit Details] [Cancel]",
+      "Check Status":
+        "Retrieving your reimbursement status. Please wait... [View Status Details] [Cancel]",
+      "Reimbursement Status Complete":
+        "Your reimbursement for claim RIMB-2024-456 (Daniel Lee) has been processed and payment is on its way.\n\n[Check Another Status] [Main Menu]",
+      "Check Another Status":
+        "Let's check another reimbursement status. Please provide the claim ID. [Main Menu] [Cancel]",
+      "View Status Details":
+        "Current status: Payment processed.\n\n[Check Another Status] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your reimbursement status request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Check Status] [Cancel]",
+      "Cancel": "**1.** Your reimbursement status request has been cancelled.\n\n[Main menu] [Check Status]",
       "Why is my reimbursement delayed?":
-        "**1.** Reimbursement delays can occur due to missing documents or approval bottlenecks.\n\n---\n\n" +
-        "**2.** Would you like to contact finance support or review your claim details?\n\n[Contact support] [Review claim] [Cancel]",
+        "To check the reason for your reimbursement delay, please confirm the following details:\n\n- **User:** Daniel Lee (daniel.lee@rc.com)\n- **Claim ID:** RIMB-2024-456\n\n[Check Delay Reason] [Edit Details] [Cancel]",
+      "Check Delay Reason":
+        "The reason for your reimbursement delay is displayed below.\n\n[Contact Support] [Main Menu] [Cancel]",
+      "Contact Support":
+        "You are being connected to finance support. Please wait for further instructions.\n\n[Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'budget-request': {
@@ -739,12 +755,21 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I request a budget for my project?":
-        "**1.** To request a budget, please provide project details and the required amount.\n\n---\n\n" +
-        "**2.** I'll help you fill out the budget request form and submit it for approval.\n\n---\n\n" +
-        "**3.** Would you like to start a new request or view guidelines?\n\n[Start new request] [View guidelines] [Cancel]",
+        "To submit your budget request, please confirm the following details:\n\n- **User:** Olivia Turner (olivia.turner@rc.com)\n- **Project:** Website Redesign Q4 2024\n- **Amount:** $18,000\n- **Justification:** UX improvements\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Budget Request] [Edit Details] [Cancel]",
+      "Submit Budget Request":
+        "Your budget request is being processed. You will be notified once it is approved or if further information is needed. [View Budget Status] [Cancel]",
+      "Budget Request Complete":
+        "Your budget request for 'Website Redesign Q4 2024' by Olivia Turner has been approved. Budget ID: BGT-2024-789. Funds will be allocated by July 31, 2024.\n\n[View Budget Status] [Main Menu]",
+      "View Budget Status":
+        "Current status for Budget ID BGT-2024-789: Approved. Funds will be allocated within 3 business days.\n\n[Request Another Budget] [Main Menu]",
+      "Request Another Budget":
+        "Let's start a new budget request. Please provide your project and amount details. [Main Menu] [Cancel]",
+      "Edit Details": "**1.** Please provide the updated details for your budget request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Budget Request] [Cancel]",
+      "Cancel": "**1.** Your budget request has been cancelled.\n\n[Main menu] [Submit Budget Request]",
       "What is the approval process for budget requests?":
-        "**1.** Budget requests are reviewed by your manager and the finance team.\n\n---\n\n" +
-        "**2.** Would you like to see the approval workflow or contact finance?\n\n[View workflow] [Contact finance] [Cancel]",
+        "The approval process for budget requests is as follows:\n- Submit request\n- Manager review\n- Finance approval\n- Funds allocation\n\n[Submit Budget Request] [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'invoice-query': {
@@ -754,13 +779,23 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I query an invoice?":
-        "**1.** To query an invoice, please provide the invoice number or vendor name.\n\n---\n\n" +
-        "**2.** I'll check the invoice status and details for you.\n\n---\n\n" +
-        "**3.** Would you like to download the invoice or contact support?\n\n[Download invoice] [Contact support] [Cancel]",
+        "To query an invoice, please confirm the following details:\n\n- **User:** Daniel Lee (daniel.lee@rc.com)\n- **Invoice Number:** INV-2024-123\n- **Vendor:** Acme Supplies\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Invoice Query] [Edit Details] [Cancel]",
+      "Submit Invoice Query":
+        "Your invoice query is being processed. You will be notified once the details are retrieved. [View Query Status] [Cancel]",
+      "Invoice Query Complete":
+        "The invoice details for INV-2024-123 (Acme Supplies) are displayed below.\n\n[Download Invoice] [Query Another Invoice] [Main Menu]",
+      "Download Invoice":
+        "The invoice INV-2024-123 has been downloaded and sent to your email.\n\n[Query Another Invoice] [Main Menu]",
+      "Query Another Invoice":
+        "Let's query another invoice. Please provide the invoice number or vendor name. [Main Menu] [Cancel]",
+      "View Query Status":
+        "Current status: Invoice details retrieved.\n\n[Download Invoice] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your invoice query.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Invoice Query] [Cancel]",
+      "Cancel": "**1.** Your invoice query has been cancelled.\n\n[Main menu] [Submit Invoice Query]",
       "How do I get a copy of an invoice?":
-        "**1.** To get a copy of an invoice, please provide the invoice number.\n\n---\n\n" +
-        "**2.** I'll fetch the document and send it to your email.\n\n---\n\n" +
-        "**3.** Would you like to request another invoice or return to the main menu?\n\n[Request another] [Main menu] [Cancel]",
+        "To get a copy of an invoice, please confirm the following details:\n\n- **User:** Daniel Lee (daniel.lee@rc.com)\n- **Invoice Number:** INV-2024-123\n\n[Download Invoice] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'vendor-payment': {
@@ -770,13 +805,27 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I check vendor payment status?":
-        "**1.** To check vendor payment status, please provide the vendor name or payment reference.\n\n---\n\n" +
-        "**2.** I'll fetch the latest payment status from the finance system.\n\n---\n\n" +
-        "**3.** Would you like to receive updates or contact support?\n\n[Receive updates] [Contact support] [Cancel]",
+        "To check vendor payment status, please confirm the following details:\n\n- **User:** Olivia Turner (olivia.turner@rc.com)\n- **Vendor:** Acme Supplies\n- **Invoice Number:** INV-2024-123\n\n[Check Payment Status] [Edit Details] [Cancel]",
+      "Check Payment Status":
+        "Retrieving vendor payment status. Please wait... [View Payment Status] [Cancel]",
+      "Vendor Payment Status Complete":
+        "The vendor payment status for Acme Supplies (Invoice INV-2024-123) is displayed below.\n\n[Check Another Payment] [Main Menu]",
+      "Check Another Payment":
+        "Let's check another vendor payment status. Please provide the vendor and invoice number. [Main Menu] [Cancel]",
+      "View Payment Status":
+        "Current status: Payment processed.\n\n[Check Another Payment] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your vendor payment status request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Check Payment Status] [Cancel]",
+      "Cancel": "**1.** Your vendor payment status request has been cancelled.\n\n[Main menu] [Check Payment Status]",
       "How do I initiate a vendor payment?":
-        "**1.** To initiate a vendor payment, please provide the vendor details and payment amount.\n\n---\n\n" +
-        "**2.** I'll help you fill out the payment form and submit it for approval.\n\n---\n\n" +
-        "**3.** Would you like to start a new payment or view payment history?\n\n[Start new payment] [View history] [Cancel]",
+        "To initiate a vendor payment, please confirm the following details:\n\n- **User:** Olivia Turner (olivia.turner@rc.com)\n- **Vendor:** Acme Supplies\n- **Amount:** $2,500\n- **Invoice Number:** INV-2024-123\n\n[Submit Vendor Payment] [Edit Details] [Cancel]",
+      "Submit Vendor Payment":
+        "Your vendor payment request is being submitted for approval. You will be notified once it is processed. [View Payment Status] [Cancel]",
+      "Vendor Payment Complete":
+        "Your vendor payment request for Acme Supplies (Invoice INV-2024-123) has been approved and processed. Payment confirmation has been sent to your email.\n\n[Start New Payment] [Main Menu]",
+      "Start New Payment":
+        "Let's start a new vendor payment request. Please provide the vendor and amount. [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'contract-review': {
@@ -786,12 +835,25 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I request a contract review?":
-        "**1.** To request a contract review, please upload the contract and provide relevant details.\n\n---\n\n" +
-        "**2.** I'll forward your request to the legal team and keep you updated.\n\n---\n\n" +
-        "**3.** Would you like to start a new review or check review status?\n\n[Start new review] [Check status] [Cancel]",
+        "To submit your contract review request, please confirm the following details:\n\n- **User:** Emma Rodriguez (emma.rodriguez@rc.com)\n- **Contract Name:** Service Agreement with TechCorp\n- **Purpose:** Cloud Services Implementation\n- **Upload:** ServiceAgreement_TechCorp_August2024.pdf\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Contract Review] [Edit Details] [Cancel]",
+      "Submit Contract Review":
+        "Your contract review request is being reviewed by the legal team. You will be notified once the review is complete or if further information is needed. [View Review Status] [Cancel]",
+      "Contract Review Complete":
+        "Your contract review for 'Service Agreement with TechCorp' has been completed. The legal team has approved the contract with comments. Review ID: CR-2024-567.\n\n[Download Reviewed Contract] [Request Another Review] [Main Menu]",
+      "Download Reviewed Contract":
+        "The reviewed contract (ServiceAgreement_TechCorp_Reviewed_August2024.pdf) has been downloaded and sent to your email.\n\n[Request Another Review] [Main Menu]",
+      "Request Another Review":
+        "Let's start a new contract review. Please provide your contract details. [Main Menu] [Cancel]",
+      "View Review Status":
+        "Current status: Approved with comments. Please review the attached notes from Legal.\n\n[Download Reviewed Contract] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your contract review request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Contract Review] [Cancel]",
+      "Cancel": "**1.** Your contract review request has been cancelled.\n\n[Main menu] [Submit Contract Review]",
       "What documents are needed for contract review?":
-        "**1.** For contract review, you typically need to provide the contract, related correspondence, and any supporting documents.\n\n---\n\n" +
-        "**2.** Would you like a checklist or a sample contract?\n\n[Get checklist] [Get sample contract] [Cancel]",
+        "The required documents for contract review are listed below:\n- Contract draft (PDF/Word)\n- Statement of work (if applicable)\n- Any prior correspondence\n\n[Upload Contract] [Main Menu] [Cancel]",
+      "Upload Contract":
+        "Your contract has been uploaded. Please confirm details to proceed.\n\n[Submit Contract Review] [Edit Details] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'nda-request': {
@@ -801,12 +863,23 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I request an NDA?":
-        "**1.** To request an NDA, please provide the parties involved and the purpose.\n\n---\n\n" +
-        "**2.** I'll help you fill out the NDA request form and submit it for approval.\n\n---\n\n" +
-        "**3.** Would you like to start a new request or view NDA templates?\n\n[Start new request] [View templates] [Cancel]",
+        "To submit your NDA request, please confirm the following details:\n\n- **User:** Marcus Chen (marcus.chen@rc.com)\n- **Counterparty:** InnovateTech Solutions\n- **Purpose:** Product Development Partnership\n- **Type:** Mutual NDA\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit NDA Request] [Edit Details] [Cancel]",
+      "Submit NDA Request":
+        "Your NDA request is being processed by the legal team. You will be notified once it is approved or if further information is needed. [View NDA Status] [Cancel]",
+      "NDA Request Complete":
+        "Your NDA request for InnovateTech Solutions has been approved. NDA ID: NDA-2024-890. The document has been sent to all parties for signature.\n\n[Download NDA] [Request Another NDA] [Main Menu]",
+      "Download NDA":
+        "The NDA document (NDA_InnovateTech_August2024.pdf) has been downloaded and sent to your email.\n\n[Request Another NDA] [Main Menu]",
+      "Request Another NDA":
+        "Let's start a new NDA request. Please provide the counterparty and purpose details. [Main Menu] [Cancel]",
+      "View NDA Status":
+        "Current status: Approved and pending signatures.\n\n[Download NDA] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your NDA request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit NDA Request] [Cancel]",
+      "Cancel": "**1.** Your NDA request has been cancelled.\n\n[Main menu] [Submit NDA Request]",
       "What is the process for NDA approval?":
-        "**1.** NDA requests are reviewed by the legal team and require signatures from all parties.\n\n---\n\n" +
-        "**2.** Would you like to see the approval workflow or contact legal?\n\n[View workflow] [Contact legal] [Cancel]",
+        "The NDA approval process is as follows:\n- Submit request\n- Legal review\n- Counterparty review\n- Signatures\n- Final execution\n\n[Submit NDA Request] [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'policy-query': {
@@ -816,12 +889,25 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I query a company policy?":
-        "**1.** To query a company policy, please specify the policy name or topic.\n\n---\n\n" +
-        "**2.** I'll search the policy database and provide the relevant information.\n\n---\n\n" +
-        "**3.** Would you like to download the policy or contact HR?\n\n[Download policy] [Contact HR] [Cancel]",
+        "To query a company policy, please confirm the following details:\n\n- **User:** Sophia Martinez (sophia.martinez@rc.com)\n- **Policy Type:** Remote Work Policy\n- **Version:** 2024.4\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Policy Query] [Edit Details] [Cancel]",
+      "Submit Policy Query":
+        "Your policy query is being processed. You will be notified once the information is retrieved. [View Policy Details] [Cancel]",
+      "Policy Query Complete":
+        "The Remote Work Policy (Version 2024.4) is displayed below.\n\n[Download Policy] [Query Another Policy] [Main Menu]",
+      "Download Policy":
+        "The policy document (RemoteWorkPolicy_2024.4.pdf) has been downloaded and sent to your email.\n\n[Query Another Policy] [Main Menu]",
+      "Query Another Policy":
+        "Let's query another company policy. Please provide the policy type and version. [Main Menu] [Cancel]",
+      "View Policy Details":
+        "Current policy details are displayed below.\n\n[Download Policy] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your policy query.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Policy Query] [Cancel]",
+      "Cancel": "**1.** Your policy query has been cancelled.\n\n[Main menu] [Submit Policy Query]",
       "Where can I find the employee handbook?":
-        "**1.** The employee handbook is available in the company intranet or HR portal.\n\n---\n\n" +
-        "**2.** Would you like a direct link or a PDF copy?\n\n[Get link] [Get PDF] [Cancel]",
+        "To access the employee handbook, please confirm the following details:\n\n- **User:** Sophia Martinez (sophia.martinez@rc.com)\n- **Handbook Version:** 2024.3\n\n[Download Handbook] [Edit Details] [Cancel]",
+      "Download Handbook":
+        "The employee handbook (EmployeeHandbook_2024.3.pdf) has been downloaded and sent to your email.\n\n[Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'compliance-check': {
@@ -831,12 +917,23 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I run a compliance check?":
-        "**1.** To run a compliance check, please specify the area or regulation.\n\n---\n\n" +
-        "**2.** I'll guide you through the compliance checklist and reporting process.\n\n---\n\n" +
-        "**3.** Would you like to start a new check or view compliance guidelines?\n\n[Start new check] [View guidelines] [Cancel]",
+        "To run a compliance check, please confirm the following details:\n\n- **User:** James Wilson (james.wilson@rc.com)\n- **Check Type:** Data Privacy\n- **Department:** IT\n- **Scope:** Q3 2024\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Run Compliance Check] [Edit Details] [Cancel]",
+      "Run Compliance Check":
+        "Your compliance check is being processed. You will be notified once the results are available. [View Check Status] [Cancel]",
+      "Compliance Check Complete":
+        "Your compliance check for Data Privacy (Q3 2024) has been completed. Check ID: CC-2024-234. All requirements have been met.\n\n[Download Report] [Run Another Check] [Main Menu]",
+      "Download Report":
+        "The compliance report (DataPrivacy_Q3_2024.pdf) has been downloaded and sent to your email.\n\n[Run Another Check] [Main Menu]",
+      "Run Another Check":
+        "Let's run another compliance check. Please provide the check type and scope. [Main Menu] [Cancel]",
+      "View Check Status":
+        "Current status: Check completed successfully.\n\n[Download Report] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your compliance check.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Run Compliance Check] [Cancel]",
+      "Cancel": "**1.** Your compliance check request has been cancelled.\n\n[Main menu] [Run Compliance Check]",
       "What are the steps for compliance reporting?":
-        "**1.** Compliance reporting involves gathering evidence, completing forms, and submitting to the compliance team.\n\n---\n\n" +
-        "**2.** Would you like a checklist or contact compliance?\n\n[Get checklist] [Contact compliance] [Cancel]",
+        "The steps for compliance reporting are as follows:\n- Identify requirements\n- Gather evidence\n- Review findings\n- Generate report\n- Submit for approval\n\n[Run Compliance Check] [Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
   'legal-support': {
@@ -846,12 +943,27 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
     ],
     responses: {
       "How do I get legal support?":
-        "**1.** To get legal support, please describe your issue or question.\n\n---\n\n" +
-        "**2.** I'll connect you with the legal team or provide relevant resources.\n\n---\n\n" +
-        "**3.** Would you like to submit a support ticket or view FAQs?\n\n[Submit ticket] [View FAQs] [Cancel]",
+        "To request legal support, please confirm the following details:\n\n- **User:** Isabella Kim (isabella.kim@rc.com)\n- **Issue Type:** Contract Dispute\n- **Priority:** High\n- **Description:** Vendor agreement termination\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Legal Support Request] [Edit Details] [Cancel]",
+      "Submit Legal Support Request":
+        "Your legal support request is being processed. A legal specialist will be assigned to your case. [View Request Status] [Cancel]",
+      "Legal Support Request Complete":
+        "Your legal support request has been assigned to a specialist. Case ID: LS-2024-678. You will be contacted within 24 hours.\n\n[View Case Details] [Submit Another Request] [Main Menu]",
+      "View Case Details":
+        "Your case details are displayed below.\n\n[Contact Legal Specialist] [Main Menu]",
+      "Contact Legal Specialist":
+        "You are being connected to your assigned legal specialist. Please wait for further instructions.\n\n[Main Menu] [Cancel]",
+      "Submit Another Request":
+        "Let's submit another legal support request. Please provide the issue details. [Main Menu] [Cancel]",
+      "View Request Status":
+        "Current status: Assigned to legal specialist.\n\n[View Case Details] [Main Menu]",
+      "Edit Details": "**1.** Please provide the updated details for your legal support request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Legal Support Request] [Cancel]",
+      "Cancel": "**1.** Your legal support request has been cancelled.\n\n[Main menu] [Submit Legal Support Request]",
       "Who do I contact for urgent legal issues?":
-        "**1.** For urgent legal issues, contact the legal hotline or your assigned legal advisor.\n\n---\n\n" +
-        "**2.** Would you like the hotline number or to send an urgent request?\n\n[Get hotline] [Send urgent request] [Cancel]",
+        "For urgent legal issues, please contact the legal hotline:\n\n- **Hotline:** 1-800-LEGAL-24\n- **Email:** urgent.legal@rc.com\n\n[Contact Legal Hotline] [Main Menu] [Cancel]",
+      "Contact Legal Hotline":
+        "You are being connected to the legal hotline. Please wait for further instructions.\n\n[Main Menu] [Cancel]",
+      "Main Menu":
+        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
 }; 

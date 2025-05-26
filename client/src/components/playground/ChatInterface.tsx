@@ -276,23 +276,52 @@ export default function ChatInterface({ samplePrompts, responses, messages, inpu
                 }}
               >
                 <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
-                  {message.text}
+                  {(() => {
+                    // Split message text by [Action] and render as clickable links
+                    const parts = [];
+                    const regex = /\[(.*?)\]/g;
+                    let lastIndex = 0;
+                    let match;
+                    let key = 0;
+                    while ((match = regex.exec(message.text)) !== null) {
+                      // Push text before the action
+                      if (match.index > lastIndex) {
+                        parts.push(message.text.slice(lastIndex, match.index));
+                      }
+                      // Push the clickable action link
+                      const action = match[1];
+                      parts.push(
+                        <Button
+                          key={key++}
+                          variant="text"
+                          size="small"
+                          onClick={() => handleActionClick(action)}
+                          sx={{
+                            color: 'primary.main',
+                            textDecoration: 'underline',
+                            cursor: 'pointer',
+                            minWidth: 0,
+                            padding: 0,
+                            fontWeight: 500,
+                            '&:hover': {
+                              background: 'none',
+                              color: 'primary.dark',
+                              textDecoration: 'underline',
+                            },
+                          }}
+                        >
+                          {action}
+                        </Button>
+                      );
+                      lastIndex = regex.lastIndex;
+                    }
+                    // Push any remaining text after the last action
+                    if (lastIndex < message.text.length) {
+                      parts.push(message.text.slice(lastIndex));
+                    }
+                    return parts;
+                  })()}
                 </Typography>
-                {!message.isUser && pendingActions.length > 0 && index === messages.length - 1 && (
-                  <Box sx={{ mt: 2, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-                    {pendingActions.map((action, i) => (
-                      <Button
-                        key={i}
-                        variant="outlined"
-                        size="small"
-                        onClick={() => handleActionClick(action)}
-                        sx={{ color: 'primary.main', borderColor: 'primary.main' }}
-                      >
-                        {action}
-                      </Button>
-                    ))}
-                  </Box>
-                )}
               </Paper>
               {message.isUser && (
                 <Avatar sx={{ bgcolor: 'secondary.main' }}>
