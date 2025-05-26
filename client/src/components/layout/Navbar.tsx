@@ -53,7 +53,7 @@ export default function Navbar() {
           {/* CTA Button */}
           {!isMobile ? (
             <div className="hidden md:block">
-              <a href="#demo">
+              <a href="#contact">
                 <Button className="bg-primary hover:bg-primary-700 shadow-md text-[19px]">
                   Request Demo
                 </Button>
@@ -77,7 +77,7 @@ export default function Navbar() {
                   <a href="#how-it-works" className="font-medium text-neutral-600 hover:text-primary p-2 rounded hover:bg-neutral-100">How It Works</a>
                   <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary p-2 rounded hover:bg-neutral-100">Use Cases</a>
                   <a href="#contact" className="font-medium text-neutral-600 hover:text-primary p-2 rounded hover:bg-neutral-100">Contact</a>
-                  <a href="#demo">
+                  <a href="#contact">
                     <Button className="w-full bg-primary hover:bg-primary-700 mt-4">
                       Request Demo
                     </Button>
