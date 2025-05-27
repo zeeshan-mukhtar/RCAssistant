@@ -116,14 +116,27 @@ export default function Playground() {
               {/* Chat area */}
               <Box sx={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', p: 0, height: 0, overflow: 'auto' }}>
                 <ChatInterface
-                  samplePrompts={samplePrompts}
-                  responses={responses}
-                  messages={chatState.messages}
-                  input={chatState.input}
+                  samplePrompts={workflowPrompts[selectedWorkflow]?.prompts || []}
+                  responses={workflowPrompts[selectedWorkflow]?.responses || {}}
+                  messages={chatStates[selectedWorkflow]?.messages || []}
+                  input={chatStates[selectedWorkflow]?.input || ''}
                   setMessages={setMessages}
-                  setInput={setInput}
-                  isLoading={chatState.isLoading}
-                  setIsLoading={setIsLoading}
+                  setInput={(input) => setChatStates((prev) => ({
+                    ...prev,
+                    [selectedWorkflow]: {
+                      ...prev[selectedWorkflow],
+                      input,
+                    },
+                  }))}
+                  isLoading={chatStates[selectedWorkflow]?.isLoading || false}
+                  setIsLoading={(loading) => setChatStates((prev) => ({
+                    ...prev,
+                    [selectedWorkflow]: {
+                      ...prev[selectedWorkflow],
+                      isLoading: loading,
+                    },
+                  }))}
+                  currentWorkflow={selectedWorkflow}
                 />
               </Box>
             </Container>

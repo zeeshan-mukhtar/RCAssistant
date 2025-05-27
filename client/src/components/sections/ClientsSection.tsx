@@ -5,7 +5,7 @@ export default function ClientsSection() {
     <section className="py-12 bg-neutral-50">
       <div className="container mx-auto px-4">
         <motion.p 
-          className="text-center text-primary font-semibold text-sm uppercase tracking-wider mb-8"
+          className="text-center text-neutral-500 font-medium mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

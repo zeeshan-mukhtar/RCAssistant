@@ -189,35 +189,64 @@ export const workflowInfoContent: Record<string, { heading: string; description:
 export const workflowPrompts: Record<string, { prompts: { text: string; highlighted: string }[]; responses: Record<string, string> }> = {
   'password-reset': {
     prompts: [
-      { text: "How do I reset my Azure AD password?", highlighted: "reset my Azure AD password" },
-      { text: "My password expired, what should I do?", highlighted: "password expired" },
+      { text: "I need to reset my password", highlighted: "reset my password" },
       { text: "How do I change my password?", highlighted: "change my password" },
+      { text: "My password expired, what should I do?", highlighted: "password expired" },
     ],
     responses: {
-      "How do I reset my Azure AD password?":
-        "To reset your Azure AD password, please confirm the following details:\n\n- **User:** John Doe (john.doe@rc.com)\n- **Application:** Azure AD\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Reset Password] [Edit Details] [Cancel]",
-      "Reset Password":
-        "Your password reset request is being processed. You will receive a notification with further instructions once it's completed. [View Reset Status] [Cancel]",
-      "Password Reset Complete":
-        "Your Azure AD password has been successfully reset. A confirmation email has been sent to john.doe@rc.com.\n\n[Login with New Password] [Main Menu]",
-      "Login with New Password":
-        "You can now log in with your new password. If you encounter any issues, please contact IT support.\n\n[Main Menu] [Contact IT Support]",
-      "View Reset Status":
-        "Current status: Password reset completed. Please check your email for further instructions.\n\n[Login with New Password] [Main Menu]",
-      "Edit Details": "**1.** Please provide the updated details for your password reset request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Reset Password] [Cancel]",
-      "Cancel": "**1.** Your password reset request has been cancelled.\n\n[Main menu] [Reset Password]",
-      "My password expired, what should I do?":
-        "To reset your expired password, please confirm the following details:\n\n- **User:** John Doe (john.doe@rc.com)\n- **Application:** Azure AD\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Reset Expired Password] [Edit Details] [Cancel]",
-      "Reset Expired Password":
-        "Your expired password reset request is being processed. You will receive a notification with further instructions once it's completed. [View Reset Status] [Cancel]",
+      "I need to reset my password":
+        "Hi! I can help you reset your password. Which application do you need to reset your password for? (e.g., Okta, Office 365, Salesforce)\n\n[Enter Application] [Cancel]",
       "How do I change my password?":
-        "To change your password, please confirm the following details:\n\n- **User:** John Doe (john.doe@rc.com)\n- **Application:** Azure AD\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Change Password] [Edit Details] [Cancel]",
-      "Change Password":
-        "Your password change request is being processed. You will receive a notification with further instructions once it's completed. [View Change Status] [Cancel]",
-      "View Change Status":
-        "Current status: Password change completed. Please check your email for further instructions.\n\n[Login with New Password] [Main Menu]",
-      "Main Menu":
-        "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
+        "Sure! To change your password, please tell me which application you want to change it for.\n\n[Enter Application] [Cancel]",
+      "My password expired, what should I do?":
+        "No worries! Let's get your expired password reset. Which application is this for?\n\n[Enter Application] [Cancel]",
+      // Change password flow
+      "Enter Application (change)":
+        "Please enter your current password for {application}.\n\n[Enter Current Password] [Cancel]",
+      "Enter Current Password":
+        "Now enter your new password for {application}.\n\n[Enter New Password] [Cancel]",
+      "Enter New Password":
+        "Here's what I have:\n- **Application:** {application}\n- **Current Password:** (hidden)\n- **New Password:** (hidden)\n\n👉 Is this correct?\n\n[Submit Change] [Edit details] [Cancel]",
+      "Submit Change":
+        "✅ Your password for **{application}** has been changed successfully!\n\nYou can now log in with your new password. If you have any issues logging in, try again or [Get Help].\n\n[Main menu] [Get Help]",
+      // Expired password flow
+      "Enter Application (expired)":
+        "Please provide your work email address for {application}.\n\n[Enter Email] [Cancel]",
+      "Enter Email (expired)":
+        "Here's what I have:\n- **Application:** {application}\n- **User:** {user email}\n\n👉 Is this correct?\n\n[Reset Expired Password] [Edit details] [Cancel]",
+      "Reset Expired Password":
+        "🔄 Your expired password for **{application}** is being reset.\n\nYou'll receive an email at **{user email}** with instructions to set a new password. If you don't see the email soon, check your spam folder or [Get Help].\n\n[Main menu] [Get Help]",
+      // Default reset flow
+      "Enter Application":
+        "Great! Please provide your work email address so I can verify your identity.\n\n[Enter Email] [Cancel]",
+      "Enter Email":
+        "Here's what I have:\n- **Application:** {application}\n- **User:** {user email}\n\n👉 Are these details correct?\n\n[Yes, proceed] [Edit details] [Cancel]",
+      "Yes, proceed":
+        "🔄 Your password reset request for **{application}** is being processed.\n\n**What happens next:**\n- You'll receive an email at **{user email}** with instructions to reset your password, or a link to complete the process.\n- If you don't see the email within a few minutes, please check your spam or junk folder.\n- If you have any issues, you can [Get Help] or reply here for further assistance.\n\n**Next steps:**\n[Check my email] [Resend instructions] [Main menu] [Get Help]",
+      "Resend instructions":
+        "A new password reset email has been sent to **{user email}**. Please check your inbox (and spam folder). If you still don't receive it, [Get Help].\n\n[Check my email] [Main menu] [Get Help]",
+      "Get Help":
+        "Connecting you to support for password reset. Please wait... [Main menu] [Cancel]",
+      "Edit details":
+        "You can update the application or email address below.\n\n[Enter Application] [Enter Email] [Cancel]",
+      "Cancel":
+        "Your password reset request has been cancelled.\n\n[Main menu] [Start Over]",
+      "Check my email":
+        "Please check your inbox (and spam folder) for the password reset instructions. If you haven't received anything, try 'Resend instructions' or [Get Help].\n\n[Resend instructions] [Main menu] [Get Help]",
+      // Change password flow actions
+      "Edit details (change)":
+        "You can update the application, current password, or new password below.\n\n[Enter Application] [Enter Current Password] [Enter New Password] [Cancel]",
+      "Cancel (change)":
+        "Your password change request has been cancelled.\n\n[Main menu] [Start Over]",
+      "Get Help (change)":
+        "Connecting you to support for password change. Please wait... [Main menu] [Cancel]",
+      // Expired password flow actions
+      "Edit details (expired)":
+        "You can update the application or email address below.\n\n[Enter Application] [Enter Email] [Cancel]",
+      "Cancel (expired)":
+        "Your expired password reset request has been cancelled.\n\n[Main menu] [Start Over]",
+      "Get Help (expired)":
+        "Connecting you to support for expired password reset. Please wait... [Main menu] [Cancel]",
     }
   },
   'unlock-account': {
@@ -281,40 +310,32 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
   },
   'group-management': {
     prompts: [
+      { text: "I want to manage group memberships", highlighted: "manage group memberships" },
       { text: "How do I add a user to a group?", highlighted: "add a user to a group" },
       { text: "How can I see all members of a group?", highlighted: "see all members of a group" },
-      { text: "Am I part of the product group?", highlighted: "part of the product group" },
     ],
     responses: {
-      "How do I add a user to a group?":
-        "To add a user to a group, please confirm the following details:\n\n- **User:** Aisha El-Sayed (aisha.elsayed@rc.com)\n- **Group:** Customer Success - EMEA\n- **Role:** Senior Account Manager\n- **Access Expiration:** 2025-01-31\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Add User to Group] [Edit Details] [Cancel]",
-      "Add User to Group":
-        "Adding user to the group. Awaiting group owner approval. You will receive a confirmation at aisha.elsayed@rc.com. [View Group Status] [Contact Group Owner] [Cancel]",
-      "Group Update Complete":
-        "Aisha El-Sayed has been added to the Customer Success - EMEA group. Group ID: GRP-2024-EMEA-002. [View Group Members] [Add Another User] [Main Menu]",
-      "View Group Members":
-        "Current members of Customer Success - EMEA:\n- Aisha El-Sayed (Senior Account Manager, until 2025-01-31)\n- Tomás García (Director)\n- Fatima Zahra (Support Lead)\n\n[Export List] [Manage Permissions] [Main Menu]",
-      "Export List":
-        "The group membership list (CustomerSuccessEMEA_August2024.csv) has been exported and sent to your email. [Main Menu] [Manage Permissions] [Cancel]",
-      "Manage Permissions":
-        "Group permissions have been updated. [Main Menu] [Cancel]",
-      "Add Another User":
-        "Let's add another user to a group. Please provide the user and group details. [Main Menu] [Cancel]",
-      "Edit Details": "**1.** Please update the following details for your group management request.\n\n- User Name\n- Group Name\n- Role\n- Access Expiration\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Add User to Group] [Cancel]",
-      "Cancel": "**1.** Your group management request has been cancelled.\n\n[Main menu] [Add User to Group]",
-      "How can I see all members of a group?":
-        "To view group members, please confirm the following details:\n\n- **Group Name:** Customer Success - EMEA\n\n[View Group Members] [Edit Details] [Cancel]",
-      "Am I part of the product group?":
-        "Checking your membership in the Customer Success - EMEA group... [View Membership Status] [Cancel]",
-      "View Membership Status":
-        "You are a member of the Customer Success - EMEA group as Senior Account Manager. [Check Another Group] [Main Menu] [Cancel]",
-      "Check Another Group":
-        "Please enter the group name to check your membership. [Main Menu] [Cancel]",
-      "View Group Status":
-        "Current status: Awaiting group owner approval. [Contact Group Owner] [Main Menu] [Cancel]",
-      "Contact Group Owner":
-        "You are being connected to the group owner for approval. Please wait for further instructions. [Main Menu] [Cancel]",
-      "Main Menu":
+      "I want to manage group memberships":
+        "What would you like to do?\n\n[Add user to group] [Remove user from group] [View group members] [Cancel]",
+      "Add user to group":
+        "Please provide:\n- The user's email address\n- The group name\n- The role (optional)\n- Access expiration date (optional)\n\n[Enter Details] [Cancel]",
+      "Enter Details":
+        "Here's what I have:\n- **User:** {user email}\n- **Group:** {group name}\n- **Role:** {role or 'N/A'}\n- **Access Expiration:** {date or 'N/A'}\n\n👉 Is this correct?\n\n[Add to group] [Edit details] [Cancel]",
+      "Add to group":
+        "✅ The request to add **{user email}** to **{group name}** is being processed.\n\n**What happens next:**\n- You and the user will receive a confirmation email once the group membership is updated.\n- If approval is required, you'll be notified by email when it's complete.\n- You can view the group's current members or manage permissions at any time.\n\n**Next steps:**\n[View group members] [Add another user] [Main menu] [Get Help]",
+      "Edit details":
+        "Please update the user, group, role, or expiration as needed.\n\n[Enter Details] [Cancel]",
+      "Cancel":
+        "Your group management request has been cancelled.\n\n[Main menu] [Start Over]",
+      "View group members":
+        "Please enter the group name to view its members.\n\n[Show Members] [Cancel]",
+      "Show Members":
+        "Here are the current members of **{group name}**: ...\n\n[Add user to group] [Remove user from group] [Main menu] [Get Help]",
+      "Add another user":
+        "Let's add another user to a group. Please provide the user and group details. [Main menu] [Cancel]",
+      "Get Help":
+        "Connecting you to support. Please wait... [Main menu] [Cancel]",
+      "Main menu":
         "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
@@ -444,25 +465,30 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
   },
   'leave-request': {
     prompts: [
-      { text: "I need to take a day off next week", highlighted: "take a day off next week" },
-      { text: "I need to request a day off, what should I do?", highlighted: "need to request day off" },
+      { text: "I need to request time off", highlighted: "request time off" },
       { text: "How do I check my leave balance?", highlighted: "check leave balance" },
     ],
     responses: {
-      "I need to take a day off next week":
-        "To submit your leave request, please confirm the following details:\n\n- **User:** Ava Patel (ava.patel@rc.com)\n- **Date(s) of leave:** 2024-07-15\n- **Type of leave:** Vacation\n- **Reason:** Family event\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Submit Leave Request] [Edit Details] [Cancel]",
-      "Submit Leave Request":
-        "Your leave request for 2024-07-15 (Vacation) is being processed. You will receive a confirmation at ava.patel@rc.com. [View Leave Status] [Contact HR] [Cancel]",
-      "Leave Request Complete":
-        "Your leave request for 2024-07-15 (Vacation) has been approved and recorded for Ava Patel. You will receive a confirmation email shortly. [View Leave Balance] [Request Another Leave] [Main Menu]",
-      "View Leave Balance":
-        "Your current leave balance is: 14 days remaining. [Request Another Leave] [Main Menu]",
-      "Main Menu":
+      "I need to request time off":
+        "What type of leave would you like to request? (e.g., vacation, sick leave, personal day)\n\n[Enter Leave Type] [Cancel]",
+      "Enter Leave Type":
+        "Please provide:\n- The date(s) for your leave\n- Reason (optional)\n\n[Enter Details] [Cancel]",
+      "Enter Details":
+        "Here's what I have:\n- **Type of leave:** {leave type}\n- **Date(s):** {dates}\n- **Reason:** {reason or 'N/A'}\n\n👉 Is this correct?\n\n[Submit request] [Edit details] [Cancel]",
+      "Submit request":
+        "📝 Your leave request for **{dates}** ({leave type}) has been submitted.\n\n**What happens next:**\n- You'll receive an email notification once your request is approved or if more information is needed.\n- You can check your leave status or balance at any time.\n- If you need to make changes, you can edit or cancel your request.\n\n**Next steps:**\n[Check leave status] [Request another leave] [Main menu] [Get Help]",
+      "Edit details":
+        "Please update the leave type, dates, or reason as needed.\n\n[Enter Leave Type] [Enter Details] [Cancel]",
+      "Cancel":
+        "Your leave request has been cancelled.\n\n[Main menu] [Start Over]",
+      "Check leave status":
+        "You can check your leave status in your email or HR portal. If you need further help, click below.\n\n[Get Help] [Main menu]",
+      "Request another leave":
+        "Let's start a new leave request. Please provide your leave details. [Main menu] [Cancel]",
+      "Get Help":
+        "Connecting you to HR support. Please wait... [Main menu] [Cancel]",
+      "Main menu":
         "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
-      "Request Another Leave":
-        "Let's start a new leave request. Please provide your leave details. [Main Menu] [Cancel]",
-      "Edit Details": "**1.** Please provide the updated details for your leave request.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Submit Leave Request] [Cancel]",
-      "Cancel": "**1.** Your leave request has been cancelled.\n\n[Main menu] [Submit Leave Request]",
     }
   },
   'payslip-download': {
@@ -576,29 +602,29 @@ export const workflowPrompts: Record<string, { prompts: { text: string; highligh
   'travel-request': {
     prompts: [
       { text: "I need to book a business trip", highlighted: "book a business trip" },
-      { text: "I need to raise a travel request, what should I do?", highlighted: "need to raise travel request" },
+      { text: "I need to raise a travel request, what should I do?", highlighted: "raise a travel request" },
       { text: "How do I check available flight options?", highlighted: "check available flight options" },
     ],
     responses: {
       "I need to book a business trip":
-        "To book your business trip, please confirm the following details:\n\n- **User:** Ethan Rivera (ethan.rivera@rc.com)\n- **Destination:** London\n- **Dates:** 2024-08-05 to 2024-08-09\n- **Purpose:** Client presentation\n\n👉 Please confirm if these details are correct, or edit/cancel your request.\n\n[Book Business Trip] [Edit Details] [Cancel]",
-      "Book Business Trip":
-        "Your business trip request for London (Aug 5–9, 2024) is being reviewed. Awaiting manager approval and travel desk confirmation. [View Request Status] [Contact Travel Desk] [Cancel]",
-      "Business Trip Booking Complete":
-        "Your business trip to London is confirmed. Itinerary and tickets have been sent to ethan.rivera@rc.com. [Download Itinerary] [Book Another Trip] [Main Menu]",
-      "Download Itinerary":
-        "Your itinerary (London_August2024.pdf) is ready for download. [Download Again] [Book Another Trip] [Main Menu]",
-      "Book Another Trip":
-        "Let's start a new business trip booking. Please provide your destination and dates. [Main Menu] [Cancel]",
-      "View Booking Status":
-        "Current status: Awaiting manager approval. [Contact Manager] [Contact Travel Desk] [Main Menu]",
-      "Edit Details": "**1.** Please provide the updated details for your business trip booking.\n\n---\n\n**2.** Once you update the information, I'll proceed with your request.\n\n[Book Business Trip] [Cancel]",
-      "Cancel": "**1.** Your business trip booking request has been cancelled.\n\n[Main menu] [Book Business Trip]",
-      "How do I check available flight options?":
-        "To check available flight options, please confirm the following details:\n\n- **User:** Ethan Rivera (ethan.rivera@rc.com)\n- **Destination:** London\n- **Dates:** 2024-08-05 to 2024-08-09\n\n[Check Flight Options] [Edit Details] [Cancel]",
-      "Check Flight Options":
-        "Available flight options are displayed below. [Book Flight] [Contact Travel Desk] [Main Menu] [Cancel]",
-      "Main Menu":
+        "Where are you traveling to?\n\n[Enter Destination] [Cancel]",
+      "Enter Destination":
+        "Please provide:\n- Travel dates (departure and return)\n- Purpose of the trip\n- Any special requirements (optional)\n\n[Enter Details] [Cancel]",
+      "Enter Details":
+        "Here's what I have:\n- **Destination:** {destination}\n- **Dates:** {dates}\n- **Purpose:** {purpose}\n- **Special requirements:** {requirements or 'N/A'}\n\n👉 Is this correct?\n\n[Submit travel request] [Edit details] [Cancel]",
+      "Submit travel request":
+        "✈️ Your travel request to **{destination}** ({dates}) has been submitted for review.\n\n**What happens next:**\n- You'll receive an email with your itinerary and booking details once your request is approved.\n- If additional information is needed, you'll be contacted via email.\n- You can view your travel status or request changes at any time.\n\n**Next steps:**\n[Check travel status] [Book another trip] [Main menu] [Get Help]",
+      "Edit details":
+        "Please update the destination, dates, purpose, or requirements as needed.\n\n[Enter Destination] [Enter Details] [Cancel]",
+      "Cancel":
+        "Your travel request has been cancelled.\n\n[Main menu] [Start Over]",
+      "Check travel status":
+        "You can check your travel status in your email or travel portal. If you need further help, click below.\n\n[Get Help] [Main menu]",
+      "Book another trip":
+        "Let's start a new business trip booking. Please provide your destination and dates. [Main menu] [Cancel]",
+      "Get Help":
+        "Connecting you to travel support. Please wait... [Main menu] [Cancel]",
+      "Main menu":
         "You are now at the main menu. Please select a workflow or type your request to begin. [Start Over] [Cancel]",
     }
   },
