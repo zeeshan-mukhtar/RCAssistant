@@ -4,6 +4,20 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+    // ... your existing config ...
+    server: {
+      // ... any existing server options ...
+      allowedHosts: ['aiagentbot.com'],
+      // If you have a proxy, keep it here as well
+      // proxy: { ... }
+      proxy: {
+        '/api': {
+          target: 'https://localhost:5000',
+          changeOrigin: true,
+          secure: false, // Accept self-signed certs in dev
+        },
+      },
+    },
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -27,5 +41,5 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-  },
+  }
 });
