@@ -5,8 +5,12 @@ import { insertDemoRequestSchema, insertChatMessageSchema } from "@shared/schema
 import { z } from "zod";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import emailRouter from './src/routes/email';
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Register email route
+  app.use('/api', emailRouter);
+  
   // Chat messages API
   app.post("/api/chat", async (req, res) => {
     try {

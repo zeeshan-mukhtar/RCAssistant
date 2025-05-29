@@ -90,7 +90,7 @@ export default function ContactSection() {
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium">Email Us</h3>
-                  <p className="text-neutral-600">info@example.com</p>
+                  <p className="text-neutral-600">info@royalcyber.com</p>
                 </div>
               </div>
               <div className="flex items-start">
