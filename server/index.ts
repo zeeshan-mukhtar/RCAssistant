@@ -3,29 +3,30 @@ import path from "path";
 import dotenv from "dotenv";
 import https from "https";
 import fs from "fs";
-
-// Always load .env from the server directory
-
-import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
 import { dirname } from 'path';
-
-// Optional dotenv import with error handling
-try {
-  await import('dotenv/config');
-} catch (error) {
-  console.log('No .env file found, using default configuration');
-}
-
 
 // Get directory path in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+// Load environment variables
+const envPath = path.resolve(__dirname, ".env");
+console.log('Loading environment variables from:', envPath);
+const result = dotenv.config({ path: envPath });
+
+if (result.error) {
+  console.error('Error loading .env file:', result.error);
+  process.exit(1);
+}
+
+console.log('Environment Variables Loaded:');
 console.log('EMAIL_USER:', process.env.EMAIL_USER);
 console.log('EMAIL_PASSWORD:', process.env.EMAIL_PASSWORD ? '***set***' : '***missing***');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
+import express, { type Request, Response, NextFunction } from "express";
+import { registerRoutes } from "./routes";
+import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 app.use(express.json());

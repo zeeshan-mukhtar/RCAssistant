@@ -74,16 +74,16 @@ export default function HeroSection() {
                 <DialogContent>
                   <form className="space-y-4" onSubmit={handleSubmit}>
                     <div className="text-lg font-semibold text-center mb-2">Fill out the form. Get instant access. Try the AI Assistant.</div>
-                    <Input name="firstName" placeholder="First Name: *" required value={form.firstName} onChange={handleChange} />
-                    <Input name="lastName" placeholder="Last Name: *" required value={form.lastName} onChange={handleChange} />
-                    <Input name="email" type="email" placeholder="Business Email: *" required value={form.email} onChange={handleChange} />
+                    <Input name="firstName" placeholder="Name: *" required value={form.firstName} onChange={handleChange} />
+                    {/* <Input name="lastName" placeholder="Last Name: *" required value={form.lastName} onChange={handleChange} /> */}
+                    <Input name="email" type="email" placeholder="Company Email: *" required value={form.email} onChange={handleChange} />
                     <Input name="company" placeholder="Company: *" required value={form.company} onChange={handleChange} />
                     <div className="flex items-center mt-2">
                       <input type="checkbox" name="updates" checked={form.updates} onChange={handleChange} className="mr-2" id="updates-check" />
                       <label htmlFor="updates-check" className="text-sm">By checking this box, I agree to receive company news and updates</label>
                     </div>
-                    <div className="text-xs text-neutral-500">By submitting, you agree to our <a href="/privacy" className="underline">Privacy Policy</a>.</div>
-                    {error && <div className="text-red-500 text-sm">{error}</div>}
+                    {/* <div className="text-xs text-neutral-500">By submitting, you agree to our <a href="/privacy" className="underline">Privacy Policy</a>.</div>
+                    {error && <div className="text-red-500 text-sm">{error}</div>} */}
                     <Button type="submit" className="w-full mt-2" disabled={submitting}>{submitting ? 'Submitting...' : 'Try now'}</Button>
                   </form>
                 </DialogContent>

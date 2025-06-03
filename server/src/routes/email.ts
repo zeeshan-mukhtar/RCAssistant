@@ -1,23 +1,38 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+
 import express from 'express';
 import nodemailer from 'nodemailer';
+
 
 const router = express.Router();
 
 // Create a transporter using corporate SMTP
-console.log('EMAIL_USER:', process.env.EMAIL_USER);
-console.log('EMAIL_PASSWORD:', process.env.EMAIL_PASSWORD ? '***set***' : '***missing***');
+// console.log('Environment Variables Check:');
+// console.log('EMAIL_USER:', process.env.EMAIL_USER);
+// console.log('EMAIL_PASSWORD:', process.env.EMAIL_PASSWORD ? '***set***' : '***missing***');
+// console.log('NODE_ENV:', process.env.NODE_ENV);
+// console.log('All env variables:', process.env);
+
 const transporter = nodemailer.createTransport({
-  host: 'smtp.office365.com', // Microsoft 365 SMTP server
+  service: 'smtp',
+  host: 'mail.aiagentbot.com',
   port: 587,
-  secure: false, // true for 465, false for other ports
+  secure: false,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD
+    user: process.env.EMAIL_USER?.trim(),
+    pass: process.env.EMAIL_PASSWORD?.trim(),
   },
   tls: {
-    ciphers: 'SSLv3'
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: false
   }
-});
+} as any); // Type assertion to fix TypeScript error
 
 // Endpoint to send try-now form email
 router.post('/send-try-now', async (req, res) => {
@@ -28,20 +43,12 @@ router.post('/send-try-now', async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Welcome to AIagentBot!',
+      subject: 'Thank You for Contacting AI Agent Bot',
       html: `
-        <h1>Welcome to AIagentBot!</h1>
         <p>Dear ${firstName} ${lastName},</p>
-        <p>Thank you for your interest in AIagentBot. We're excited to have you on board!</p>
-        <p>Here's a summary of your registration:</p>
-        <ul>
-          <li>Name: ${firstName} ${lastName}</li>
-          <li>Email: ${email}</li>
-          <li>Company: ${company}</li>
-          <li>Receive Updates: ${updates ? 'Yes' : 'No'}</li>
-        </ul>
-        <p>We'll be in touch soon with more information about getting started with AIagentBot.</p>
-        <p>Best regards,<br>The AIagentBot Team</p>
+        <p>Thank you for contacting AI Agent Bot. We’ve received your message and our team will get back to you shortly.</p>
+        <p>If you have any urgent queries, feel free to reach out again. We appreciate your interest in our services!</p>
+        <p>Best regards,<br>The AI Agent Bot Team</p>
       `
     };
 
