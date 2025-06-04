@@ -91,10 +91,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const adminMailOptions = {
         from: process.env.EMAIL_USER,
         to: 'info@aiagentbot.com',
-        // to: 'mohsin.awais@royalcyber.com',
-        subject: 'New Demo Request - AI Agent Bot',
+        subject: 'Contacting AI Agent Bot - Contact Us',
         html: `
-          <h3>New Demo Request Submission</h3>
+          <h3>New Contact Submission</h3>
           <p><strong>Name:</strong> ${validatedData.name}</p>
           <p><strong>Email:</strong> ${validatedData.email}</p>
           <p><strong>Company:</strong> ${validatedData.company}</p>
