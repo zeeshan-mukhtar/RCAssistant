@@ -96,7 +96,7 @@ export default function ContactSection() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Contact Us</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">Level Up Your Business with AI AgentBot</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">Level Up Your Business with AIagentBot</h2>
             <p className="text-neutral-600 text-lg mb-8">We help you build AI agents tailored to your industry, brand, data, and compliance needs. Ready to learn more or get started? Just fill out the form! </p>
             
             <div className="space-y-6">
