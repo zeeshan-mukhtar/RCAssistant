@@ -6,6 +6,29 @@ import { z } from "zod";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 import emailRouter from './src/routes/email';
+import nodemailer from 'nodemailer';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, './.env') });
+
+const transporter = nodemailer.createTransport({
+  service: 'smtp',
+  host: 'mail.aiagentbot.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USER?.trim(),
+    pass: process.env.EMAIL_PASSWORD?.trim(),
+  },
+  tls: {
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: false
+  }
+} as any);
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Register email route
@@ -63,6 +86,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertDemoRequestSchema.parse(req.body);
       const demoRequest = await storage.createDemoRequest(validatedData);
+
+      // Send email to info@aiagentbot.com
+      const adminMailOptions = {
+        from: process.env.EMAIL_USER,
+        to: 'info@aiagentbot.com',
+        // to: 'mohsin.awais@royalcyber.com',
+        subject: 'New Demo Request - AI Agent Bot',
+        html: `
+          <h3>New Demo Request Submission</h3>
+          <p><strong>Name:</strong> ${validatedData.name}</p>
+          <p><strong>Email:</strong> ${validatedData.email}</p>
+          <p><strong>Company:</strong> ${validatedData.company}</p>
+          ${validatedData.message ? `<p><strong>Message:</strong> ${validatedData.message}</p>` : ''}
+        `
+      };
+      await transporter.sendMail(adminMailOptions);
+
       res.status(201).json(demoRequest);
     } catch (error) {
       if (error instanceof ZodError) {

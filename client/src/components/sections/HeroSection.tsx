@@ -10,10 +10,18 @@ import type { VariantProps } from "class-variance-authority";
 type ButtonSize = "default" | "sm" | "lg" | "icon";
 type ButtonVariant = "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
 
+type FormType = { firstName: string; lastName: string; email: string; company: string; updates: boolean };
+
+const personalEmailDomains = [
+  "gmail.com", "yahoo.com", "hotmail.com", "aol.com", "outlook.com",
+  "icloud.com", "mail.com", "gmx.com", "protonmail.com", "yandex.com",
+  "zoho.com", "msn.com", "live.com", "rediffmail.com"
+];
+
 export default function HeroSection() {
   const [, setLocation] = useLocation();
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', company: '', updates: true });
+  const [form, setForm] = useState<FormType>({ firstName: '', lastName: '', email: '', company: '', updates: true });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -22,12 +30,42 @@ export default function HeroSection() {
     setForm(f => ({ ...f, [name]: type === 'checkbox' ? checked : value }));
   };
 
+  function validate(form: FormType) {
+    // Name: only letters, spaces, hyphens, apostrophes, min 2 chars
+    if (!form.firstName || !/^[A-Za-z\s'-]{2,}$/.test(form.firstName.trim())) {
+      return "Name must be at least 2 letters and contain only letters, spaces, hyphens, or apostrophes.";
+    }
+    // Email: standard email regex
+    if (!form.email || !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(form.email)) {
+      return "Please enter a valid email address.";
+    }
+    // Business email check
+    const domain = form.email.split('@')[1]?.toLowerCase();
+    if (domain && personalEmailDomains.includes(domain)) {
+      return "Please use your business email address.";
+    }
+    // Company: at least 2 chars, must contain at least one letter, can have numbers, spaces, hyphens, ampersands
+    if (
+      !form.company ||
+      form.company.trim().length < 2 ||
+      !/[A-Za-z]/.test(form.company) ||
+      /[^A-Za-z0-9\s\-&]/.test(form.company)
+    ) {
+      return "Company name must be at least 2 characters, contain at least one letter, and only use letters, numbers, spaces, hyphens, or ampersands.";
+    }
+    return "";
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
+    const validationError = validate(form);
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
     setSubmitting(true);
-    setError('');
     try {
-      // TODO: Replace with real API/email logic
       await fetch('/api/send-try-now', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -78,12 +116,11 @@ export default function HeroSection() {
                     {/* <Input name="lastName" placeholder="Last Name: *" required value={form.lastName} onChange={handleChange} /> */}
                     <Input name="email" type="email" placeholder="Company Email: *" required value={form.email} onChange={handleChange} />
                     <Input name="company" placeholder="Company: *" required value={form.company} onChange={handleChange} />
-                    <div className="flex items-center mt-2">
+                    {/* <div className="flex items-center mt-2">
                       <input type="checkbox" name="updates" checked={form.updates} onChange={handleChange} className="mr-2" id="updates-check" />
                       <label htmlFor="updates-check" className="text-sm">By checking this box, I agree to receive company news and updates</label>
-                    </div>
-                    {/* <div className="text-xs text-neutral-500">By submitting, you agree to our <a href="/privacy" className="underline">Privacy Policy</a>.</div>
-                    {error && <div className="text-red-500 text-sm">{error}</div>} */}
+                    </div> */}
+                    {error && <div className="text-red-500 text-sm">{error}</div>}
                     <Button type="submit" className="w-full mt-2" disabled={submitting}>{submitting ? 'Submitting...' : 'Try now'}</Button>
                   </form>
                 </DialogContent>

@@ -39,21 +39,35 @@ router.post('/send-try-now', async (req, res) => {
   try {
     const { firstName, lastName, email, company, updates } = req.body;
 
-    // Email content
-    const mailOptions = {
+    // Email to user
+    const userMailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: 'Thank You for Contacting AI Agent Bot',
       html: `
-        <p>Dear ${firstName} ${lastName},</p>
-        <p>Thank you for contacting AI Agent Bot. We’ve received your message and our team will get back to you shortly.</p>
+        <p>Dear ${firstName},</p>
+        <p>Thank you for contacting AI Agent Bot. We've received your message and our team will get back to you shortly.</p>
         <p>If you have any urgent queries, feel free to reach out again. We appreciate your interest in our services!</p>
         <p>Best regards,<br>The AI Agent Bot Team</p>
       `
     };
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    // Email to info@aiagentbot.com
+    const adminMailOptions = {
+      from: process.env.EMAIL_USER,
+      to: 'info@aiagentbot.com',
+      subject: 'Contacting AI Agent Bot',
+      html: `
+        <h3>New Contact Submission</h3>
+        <p><strong>Name:</strong> ${firstName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Company:</strong> ${company}</p>
+      `
+    };
+
+    // Send both emails
+    await transporter.sendMail(userMailOptions);
+    await transporter.sendMail(adminMailOptions);
 
     res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {

@@ -19,11 +19,27 @@ import { useToast } from "@/hooks/use-toast";
 import { insertDemoRequestSchema } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 
+const personalEmailDomains = [
+  "gmail.com", "yahoo.com", "hotmail.com", "aol.com", "outlook.com",
+  "icloud.com", "mail.com", "gmx.com", "protonmail.com", "yandex.com",
+  "zoho.com", "msn.com", "live.com", "rediffmail.com"
+];
+
 // Extend the schema with validation rules
 const formSchema = insertDemoRequestSchema.extend({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  company: z.string().min(2, { message: "Company name must be at least 2 characters" }),
+  name: z.string()
+    .regex(/^[A-Za-z\s'-]{2,}$/, { message: "Name must be at least 2 letters and contain only letters, spaces, hyphens, or apostrophes" })
+    .refine(val => (val.match(/[A-Za-z]/g) || []).length >= 2, { message: "Name must contain at least 2 letters" }),
+  email: z.string()
+    .email({ message: "Please enter a valid email address" })
+    .refine((val) => {
+      const domain = val.split('@')[1]?.toLowerCase();
+      return domain && !personalEmailDomains.includes(domain);
+    }, { message: "Please use your business email address." }),
+  company: z.string()
+    .min(2, { message: "Company name must be at least 2 characters" })
+    .regex(/^[A-Za-z0-9\s\-&]+$/, { message: "Company name can only use letters, numbers, spaces, hyphens, or ampersands" })
+    .refine(val => (val.match(/[A-Za-z]/g) || []).length >= 2, { message: "Company name must contain at least 2 letters" }),
   message: z.string().optional(),
 });
 
