@@ -23,13 +23,13 @@ export default function CTASection() {
               >
                 <a href="#contact">Request a Demo</a>
               </Button>
-              <Button 
+              {/* <Button 
                 size="lg"
                 variant="outline" 
                 className="px-8 bg-transparent border border-white text-white hover:bg-white/10"
               >
                 Watch Video
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
           

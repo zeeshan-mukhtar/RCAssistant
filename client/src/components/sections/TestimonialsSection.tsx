@@ -21,7 +21,7 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-16 md:py-24">
+    <section id="testimonials" className="py-16 md:py-24">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center max-w-3xl mx-auto mb-16"

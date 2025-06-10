@@ -41,12 +41,12 @@ export default function Navbar() {
           
           {/* Desktop Navigation */}
           {!isMobile ? (
-            <nav className="hidden md:flex space-x-8">
-              <a href="#features" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">Features</a>
-              <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">Use Cases</a>
-              <a href="#how-it-works" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">How It Works</a>
-              <a href="#our-approach" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">Our Approach</a>
-              <a href="#contact" className="font-medium text-neutral-600 hover:text-primary transition-colors text-[19px]">Contact</a>
+            <nav className="hidden md:flex lg:space-x-8 md:space-x-4">
+              <a href="#features" className="font-medium text-neutral-600 hover:text-primary transition-colors lg:text-[19px] md:text-[13px]">Features</a>
+              <a href="#how-it-works" className="font-medium text-neutral-600 hover:text-primary transition-colors lg:text-[19px] md:text-[13px]">How It Works</a>
+              <a href="#use-cases" className="font-medium text-neutral-600 hover:text-primary transition-colors lg:text-[19px] md:text-[13px]">Use Cases</a>
+              <a href="#testimonials" className="font-medium text-neutral-600 hover:text-primary transition-colors lg:text-[19px] md:text-[13px]">Testimonials</a>
+              <a href="#contact" className="font-medium text-neutral-600 hover:text-primary transition-colors lg:text-[19px] md:text-[13px]">Contact</a>
             </nav>
           ) : null}
           
@@ -54,7 +54,7 @@ export default function Navbar() {
           {!isMobile ? (
             <div className="hidden md:block">
               <a href="#contact">
-                <Button className="bg-primary hover:bg-primary-700 shadow-md text-[19px]">
+                <Button className="bg-primary hover:bg-primary-700 shadow-md lg:text-[19px] md:text-[13px] lg:w-full md:w-[100px]">
                   Request Demo
                 </Button>
               </a>

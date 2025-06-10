@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Check } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { 
   Form,
   FormControl,
@@ -41,6 +42,7 @@ const formSchema = insertDemoRequestSchema.extend({
     .regex(/^[A-Za-z0-9\s\-&]+$/, { message: "Company name can only use letters, numbers, spaces, hyphens, or ampersands" })
     .refine(val => (val.match(/[A-Za-z]/g) || []).length >= 2, { message: "Company name must contain at least 2 letters" }),
   message: z.string().optional(),
+  captcha: z.string().min(1, { message: "Please complete the CAPTCHA" }),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -56,9 +58,14 @@ export default function ContactSection() {
       name: "",
       email: "",
       company: "",
-      message: ""
+      message: "",
+      captcha: ""
     },
   });
+  
+  const onCaptchaChange = (token: string | null) => {
+    form.setValue("captcha", token || "");
+  };
   
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -224,6 +231,23 @@ export default function ContactSection() {
                             rows={4} 
                             className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" 
                             placeholder="Tell us about your needs" 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="captcha"
+                    render={({ field }) => (
+                      <FormItem className="mb-6">
+                        <FormControl>
+                          <ReCAPTCHA
+                            sitekey="6LfP7VsrAAAAAFDiDfG2o40pH_5ptq6IT38F2AH6"
+                            onChange={onCaptchaChange}
+                            className="mx-auto"
                           />
                         </FormControl>
                         <FormMessage />

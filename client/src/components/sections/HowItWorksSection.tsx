@@ -54,7 +54,7 @@ export default function HowItWorksSection() {
               </div>
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2">
-                  <ChevronRight className="h-8 w-8 text-primary" />
+                  {/* <ChevronRight className="h-8 w-8 text-primary" /> */}
                 </div>
               )}
             </motion.div>
